@@ -1,0 +1,342 @@
+"Polnoletni obsojenci (znani storilci) po: KAZNIVO DEJANJE, GLAVNA"
+"KAZEN, SPOL , LETO"
+
+" ";" ";"Spol - SKUPAJ";" ";" ";"Moški";" ";" ";"Ženske";" ";" "
+" ";" ";"2014";"2015";"2016";"2014";"2015";"2016";"2014";"2015";"2016"
+"1.XV KAZNIVA DEJANJA ZOPER ŽIVLJENJE IN TELO"
+" ";"111 Zaporna kazen (nepogojna)";9;4;2;8;4;2;1;-;-
+" ";"112 Zaporna kazen (pogojna)";14;6;4;14;5;4;-;1;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XVI KAZNIVA DEJANJA ZOPER ÈLOVEKOVE PRAVICE IN SVOBOŠÈINE"
+" ";"111 Zaporna kazen (nepogojna)";-;1;-;-;1;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";1;-;-;1;-;-;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XVIII KAZNIVA DEJANJA ZOPER ÈAST IN DOBRO IME"
+" ";"111 Zaporna kazen (nepogojna)";-;1;-;-;1;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";7;-;-;4;-;-;3;-;-
+" ";"12 Denarna kazen";1;-;-;1;-;-;-;-;-
+" ";"13 Sodni opomin";1;-;-;-;-;-;1;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XIX KAZNIVA DEJANJA ZOPER SPOLNO NEDOTAKLJIVOST"
+" ";"111 Zaporna kazen (nepogojna)";11;3;3;10;2;3;1;1;-
+" ";"112 Zaporna kazen (pogojna)";11;8;6;9;8;6;2;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XX KAZNIVA DEJANJA ZOPER ÈLOVEKOVO ZDRAVJE"
+" ";"111 Zaporna kazen (nepogojna)";13;23;7;13;23;7;-;-;-
+" ";"112 Zaporna kazen (pogojna)";33;17;12;32;16;11;1;1;1
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXI KAZNIVA DEJANJA ZOPER ZAKONSKO ZVEZO, DRUŽINO IN MLADINO"
+" ";"111 Zaporna kazen (nepogojna)";-;1;-;-;1;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";5;2;-;3;2;-;2;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXII KAZNIVA DEJANJA ZOPER DELOVNO RAZMERJE IN SOCIALNO VARNOST"
+" ";"111 Zaporna kazen (nepogojna)";1;-;-;1;-;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";8;5;-;8;4;-;-;1;-
+" ";"12 Denarna kazen";-;1;-;-;1;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXIII KAZNIVA DEJANJA ZOPER PREMOŽENJE"
+" ";"111 Zaporna kazen (nepogojna)";56;68;7;54;60;6;2;8;1
+" ";"112 Zaporna kazen (pogojna)";173;78;35;150;61;30;23;17;5
+" ";"12 Denarna kazen";1;-;-;-;-;-;1;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXIV KAZNIVA DEJANJA ZOPER GOSPODARSTVO"
+" ";"111 Zaporna kazen (nepogojna)";49;29;15;46;25;15;3;4;-
+" ";"112 Zaporna kazen (pogojna)";78;70;35;60;61;32;18;9;3
+" ";"12 Denarna kazen";4;1;1;3;1;1;1;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXV KAZNIVA DEJANJA ZOPER PRAVNI PROMET"
+" ";"111 Zaporna kazen (nepogojna)";8;3;3;7;3;2;1;-;1
+" ";"112 Zaporna kazen (pogojna)";34;15;6;25;12;6;9;3;-
+" ";"12 Denarna kazen";2;1;-;2;1;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXVI KAZNIVA DEJANJA ZOPER URADNO DOLŽNOST IN JAVNA POOBLASTILA"
+" ";"111 Zaporna kazen (nepogojna)";1;4;2;1;4;1;-;-;1
+" ";"112 Zaporna kazen (pogojna)";1;6;6;1;5;6;-;1;-
+" ";"12 Denarna kazen";-;2;-;-;2;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXVIII KAZNIVA DEJANJA ZOPER PRAVOSODJE"
+" ";"111 Zaporna kazen (nepogojna)";1;-;-;1;-;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";9;2;-;6;2;-;3;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXIX KAZNIVA DEJANJA ZOPER JAVNI RED IN MIR"
+" ";"111 Zaporna kazen (nepogojna)";4;6;1;4;6;1;-;-;-
+" ";"112 Zaporna kazen (pogojna)";33;17;4;31;16;4;2;1;-
+" ";"12 Denarna kazen";1;1;-;1;1;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;1;-;-;1;-;-;-;-
+"1.XXX KAZNIVA DEJANJA ZOPER SPLOŠNO VARNOST LJUDI IN PREMOŽENJA"
+" ";"111 Zaporna kazen (nepogojna)";-;1;-;-;1;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";2;4;1;2;4;1;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXXI KAZNIVA DEJANJA ZOPER VARNOST JAVNEGA PROMETA"
+" ";"111 Zaporna kazen (nepogojna)";3;1;-;3;1;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";4;2;2;3;2;2;1;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;1;-;-;1;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"1.XXXV KAZNIVA DEJANJA ZOPER ÈLOVEÈNOST IN MEDNARODNO PRAVO"
+" ";"111 Zaporna kazen (nepogojna)";-;2;-;-;1;-;-;1;-
+" ";"112 Zaporna kazen (pogojna)";-;-;-;-;-;-;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XIV KAZNIVA DEJANJA ZOPER ÈLOVEÈNOST"
+" ";"111 Zaporna kazen (nepogojna)";-;3;-;-;2;-;-;1;-
+" ";"112 Zaporna kazen (pogojna)";-;-;2;-;-;-;-;-;2
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XV KAZNIVA DEJANJA ZOPER ŽIVLJENJE IN TELO"
+" ";"111 Zaporna kazen (nepogojna)";2;45;53;2;44;51;-;1;2
+" ";"112 Zaporna kazen (pogojna)";12;337;269;10;304;247;2;33;22
+" ";"12 Denarna kazen";3;32;23;2;30;23;1;2;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;4;4;-;4;2;-;-;2
+" ";"16 Varnostni ukrep brez izreka kazni";-;6;2;-;5;1;-;1;1
+"4.XVI KAZNIVA DEJANJA ZOPER ÈLOVEKOVE PRAVICE IN SVOBOŠÈINE"
+" ";"111 Zaporna kazen (nepogojna)";-;12;5;-;9;5;-;3;-
+" ";"112 Zaporna kazen (pogojna)";9;86;81;7;77;74;2;9;7
+" ";"12 Denarna kazen";3;5;27;3;5;21;-;-;6
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;4;3;-;3;2;-;1;1
+" ";"16 Varnostni ukrep brez izreka kazni";-;3;2;-;3;2;-;-;-
+"4.XIX KAZNIVA DEJANJA ZOPER SPOLNO NEDOTAKLJIVOST"
+" ";"111 Zaporna kazen (nepogojna)";-;33;36;-;32;36;-;1;-
+" ";"112 Zaporna kazen (pogojna)";2;29;33;2;29;33;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;2;1;-;2;1;-;-;-
+"4.XX KAZNIVA DEJANJA ZOPER ÈLOVEKOVO ZDRAVJE"
+" ";"111 Zaporna kazen (nepogojna)";19;149;105;17;142;91;2;7;14
+" ";"112 Zaporna kazen (pogojna)";22;254;233;21;233;201;1;21;32
+" ";"12 Denarna kazen";-;4;1;-;4;1;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;1;-;-;-;-;-;1;-
+"4.XXI KAZNIVA DEJANJA ZOPER ZAKONSKO ZVEZO, DRUŽINO IN OTROKE"
+" ";"111 Zaporna kazen (nepogojna)";-;50;45;-;48;43;-;2;2
+" ";"112 Zaporna kazen (pogojna)";15;407;372;12;363;327;3;44;45
+" ";"12 Denarna kazen";-;1;-;-;1;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;2;3;-;2;3;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;4;6;-;4;6;-;-;-
+"4.XXII KAZNIVA DEJANJA ZOPER DELOVNO RAZMERJE IN SOCIALNO VARNOST"
+" ";"111 Zaporna kazen (nepogojna)";-;12;20;-;11;19;-;1;1
+" ";"112 Zaporna kazen (pogojna)";4;136;124;4;111;101;-;25;23
+" ";"12 Denarna kazen";1;4;9;1;3;7;-;1;2
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;1;1;-;1;1;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XXIII KAZNIVA DEJANJA ZOPER PREMOŽENJE"
+" ";"111 Zaporna kazen (nepogojna)";42;810;610;36;730;548;6;80;62
+" ";"112 Zaporna kazen (pogojna)";83;1783;1554;65;1447;1237;18;336;317
+" ";"12 Denarna kazen";2;88;76;2;67;63;-;21;13
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;19;11;-;14;4;-;5;7
+" ";"16 Varnostni ukrep brez izreka kazni";-;7;5;-;3;4;-;4;1
+"4.XXV KAZNIVA DEJANJA ZOPER PRAVNI PROMET"
+" ";"111 Zaporna kazen (nepogojna)";3;15;12;3;14;7;-;1;5
+" ";"112 Zaporna kazen (pogojna)";10;425;428;8;361;367;2;64;61
+" ";"12 Denarna kazen";1;12;16;1;11;10;-;1;6
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;7;1;-;3;-;-;4;1
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XXVI KAZNIVA DEJANJA ZOPER URADNO DOLŽNOST IN JAVNA POOBLASTILA"
+" ";"111 Zaporna kazen (nepogojna)";1;8;6;1;6;5;-;2;1
+" ";"112 Zaporna kazen (pogojna)";2;17;21;2;17;16;-;-;5
+" ";"12 Denarna kazen";-;-;3;-;-;3;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;1;-;-;1;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XXVII KAZNIVA DEJANJA ZOPER VOJAŠKO SLUŽBO"
+" ";"111 Zaporna kazen (nepogojna)";-;-;-;-;-;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";-;-;1;-;-;1;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XXVIII KAZNIVA DEJANJA ZOPER PRAVOSODJE"
+" ";"111 Zaporna kazen (nepogojna)";-;8;8;-;6;8;-;2;-
+" ";"112 Zaporna kazen (pogojna)";7;68;74;5;51;45;2;17;29
+" ";"12 Denarna kazen";-;20;15;-;13;13;-;7;2
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;2;1;-;1;-;-;1;1
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XXIX KAZNIVA DEJANJA ZOPER JAVNI RED IN MIR"
+" ";"111 Zaporna kazen (nepogojna)";6;71;68;6;66;67;-;5;1
+" ";"112 Zaporna kazen (pogojna)";28;258;221;25;237;206;3;21;15
+" ";"12 Denarna kazen";-;15;10;-;14;9;-;1;1
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;4;-;-;3;-;-;1;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;7;3;-;7;3;-;-;-
+"4.XXX KAZNIVA DEJANJA ZOPER SPLOŠNO VARNOST LJUDI IN PREMOŽENJA"
+" ";"111 Zaporna kazen (nepogojna)";-;-;5;-;-;5;-;-;-
+" ";"112 Zaporna kazen (pogojna)";1;24;22;1;19;18;-;5;4
+" ";"12 Denarna kazen";-;2;-;-;2;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;1;1;-;1;-;-;-;1
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;1;-;-;1;-;-;-
+"4.XXXI KAZNIVA DEJANJA ZOPER VARNOST JAVNEGA PROMETA"
+" ";"111 Zaporna kazen (nepogojna)";2;42;41;1;40;37;1;2;4
+" ";"112 Zaporna kazen (pogojna)";5;107;117;4;85;97;1;22;20
+" ";"12 Denarna kazen";-;32;48;-;29;40;-;3;8
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;2;-;-;1;-;-;1
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XXXII KAZNIVA DEJANJA ZOPER OKOLJE, PROSTOR IN NARAVNE DOBRINE"
+" ";"111 Zaporna kazen (nepogojna)";-;3;1;-;3;1;-;-;-
+" ";"112 Zaporna kazen (pogojna)";1;16;9;1;14;7;-;2;2
+" ";"12 Denarna kazen";-;1;3;-;1;2;-;-;1
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"4.XXXV KAZNIVA DEJANJA ZOPER MEDNARODNO PRAVO"
+" ";"111 Zaporna kazen (nepogojna)";-;-;-;-;-;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";-;-;-;-;-;-;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;1;-;-;1;-;-;-;-
+"5.XIV KAZNIVA DEJANJA ZOPER ÈLOVEÈNOST"
+" ";"111 Zaporna kazen (nepogojna)";-;-;-;-;-;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";1;-;1;1;-;1;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"5.XV KAZNIVA DEJANJA ZOPER ŽIVLJENJE IN TELO"
+" ";"111 Zaporna kazen (nepogojna)";72;15;8;68;15;8;4;-;-
+" ";"112 Zaporna kazen (pogojna)";422;53;45;376;48;43;46;5;2
+" ";"12 Denarna kazen";40;11;4;37;10;4;3;1;-
+" ";"13 Sodni opomin";12;-;-;11;-;-;1;-;-
+" ";"14 Kazen opušèena";1;4;-;-;3;-;1;1;-
+" ";"16 Varnostni ukrep brez izreka kazni";6;3;3;6;3;2;-;-;1
+"5.XVI KAZNIVA DEJANJA ZOPER ÈLOVEKOVE PRAVICE IN SVOBOŠÈINE"
+" ";"111 Zaporna kazen (nepogojna)";24;5;4;23;3;4;1;2;-
+" ";"112 Zaporna kazen (pogojna)";256;90;91;220;81;78;36;9;13
+" ";"12 Denarna kazen";35;19;6;30;17;6;5;2;-
+" ";"13 Sodni opomin";11;-;-;8;-;-;3;-;-
+" ";"14 Kazen opušèena";-;8;3;-;5;2;-;3;1
+" ";"16 Varnostni ukrep brez izreka kazni";2;-;1;2;-;1;-;-;-
+"5.XVIII KAZNIVA DEJANJA ZOPER ÈAST IN DOBRO IME"
+" ";"111 Zaporna kazen (nepogojna)";3;-;-;2;-;-;1;-;-
+" ";"112 Zaporna kazen (pogojna)";21;2;-;16;1;-;5;1;-
+" ";"12 Denarna kazen";17;1;1;13;1;1;4;-;-
+" ";"13 Sodni opomin";13;-;-;11;-;-;2;-;-
+" ";"14 Kazen opušèena";-;-;1;-;-;1;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"5.XIX KAZNIVA DEJANJA ZOPER SPOLNO NEDOTAKLJIVOST"
+" ";"111 Zaporna kazen (nepogojna)";40;9;8;37;9;8;3;-;-
+" ";"112 Zaporna kazen (pogojna)";60;7;7;58;7;7;2;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";1;-;1;1;-;1;-;-;-
+"5.XX KAZNIVA DEJANJA ZOPER ÈLOVEKOVO ZDRAVJE"
+" ";"111 Zaporna kazen (nepogojna)";186;51;46;178;50;39;8;1;7
+" ";"112 Zaporna kazen (pogojna)";434;147;103;392;142;91;42;5;12
+" ";"12 Denarna kazen";2;-;-;2;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";2;-;-;2;-;-;-;-;-
+"5.XXI KAZNIVA DEJANJA ZOPER ZAKONSKO ZVEZO, DRUŽINO IN OTROKE"
+" ";"111 Zaporna kazen (nepogojna)";60;13;12;56;12;11;4;1;1
+" ";"112 Zaporna kazen (pogojna)";518;118;103;466;101;85;52;17;18
+" ";"12 Denarna kazen";2;1;-;2;1;-;-;-;-
+" ";"13 Sodni opomin";2;-;-;-;-;-;2;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";9;2;2;8;2;2;1;-;-
+"5.XXII KAZNIVA DEJANJA ZOPER DELOVNO RAZMERJE IN SOCIALNO VARNOST"
+" ";"111 Zaporna kazen (nepogojna)";11;1;-;9;1;-;2;-;-
+" ";"112 Zaporna kazen (pogojna)";122;7;9;99;5;7;23;2;2
+" ";"12 Denarna kazen";12;-;-;10;-;-;2;-;-
+" ";"13 Sodni opomin";1;-;-;1;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";1;-;-;1;-;-;-;-;-
+"5.XXIII KAZNIVA DEJANJA ZOPER PREMOŽENJE"
+" ";"111 Zaporna kazen (nepogojna)";1025;194;85;935;174;81;90;20;4
+" ";"112 Zaporna kazen (pogojna)";2691;321;215;2138;247;183;553;74;32
+" ";"12 Denarna kazen";117;22;9;99;19;8;18;3;1
+" ";"13 Sodni opomin";15;-;-;8;-;-;7;-;-
+" ";"14 Kazen opušèena";-;3;-;-;3;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";9;1;1;7;1;1;2;-;-
+"7.XXI KAZNIVA DEJANJA ZOPER ZAKONSKO ZVEZO, DRUŽINO IN OTROKE"
+" ";"111 Zaporna kazen (nepogojna)";-;-;-;-;-;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";-;-;1;-;-;-;-;-;1
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+"7.XXXII KAZNIVA DEJANJA ZOPER OKOLJE, PROSTOR IN NARAVNE DOBRINE"
+" ";"111 Zaporna kazen (nepogojna)";-;-;-;-;-;-;-;-;-
+" ";"112 Zaporna kazen (pogojna)";-;-;1;-;-;1;-;-;-
+" ";"12 Denarna kazen";-;-;-;-;-;-;-;-;-
+" ";"13 Sodni opomin";-;-;-;-;-;-;-;-;-
+" ";"14 Kazen opušèena";-;-;-;-;-;-;-;-;-
+" ";"16 Varnostni ukrep brez izreka kazni";-;-;-;-;-;-;-;-;-
+
+"KAZNIVO DEJANJE "
+"Kazniva dejanja so razvršèena po posameznih kazenskih zakonikih. "
+"Èe je na prvem mestu šifra 1. pomeni, da gre za kazniva dejanja po "
+"Kazenskem zakoniku KZ-UPB1 (uporabljen do leta 2008), èe je na prvem "
+"mestu šifra 4. gre za  kazniva dejanja po Kazenskem zakoniku KZ-1 "
+"(uporabljen od leta 2008 do 2012), èe je na prvem mestu šifra 5. gre "
+"za  kazniva dejanja po Kazenskem zakoniku KZ-1B (uporabljen od leta "
+"2012 dalje). Šifri 2. in 3. pomenita stare kazenske zakonike, ki niso "
+"veè v  uporabi. "
+"Predlagamo uporabo iskalnika (v okence 'Išèi' pri spremenljivki "
+"KAZNIVO DEJANJE vtipkajte iskani niz). "
+"Primer: "
+"Èe želite imeti podatke o »povzroèitvi prometne nesreèe iz "
+"malomarnosti« po vseh kazenskih zakonikih morate izbrati šifre "
+"1.XXXI.325, 4.XXXI.323  in 5.XXXI.323. "
+" "
+"Vir: Statistièni urad Republike Slovenije. "
+" "
+
+"Povezane vsebine: "
+"- (seznam HREF= http://www.stat.si/StatWeb/File/DocSysFile/8274 "
+"target=_blank) Metodološka pojasnila"
+
+"Ker so bili podatki o odloèitvah sodnikov pri našem podatkovnem viru "
+"(Vrhovno sodišèe Republike Slovenije, Informatizirana kazenska "
+"evidenca Vrhovnega sodišèa RS) popravljeni, smo te podatke za leto "
+"2015 popravili tudi v SI-STAT bazi."
+

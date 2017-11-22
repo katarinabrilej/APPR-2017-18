@@ -1,0 +1,216 @@
+"Aktivno prebivalstvo po: OBÈINA , ZAPOSLITVENI STATUS"
+
+" ";"Brezposelne osebe"
+"SLOVENIJA";130774
+"Ajdovšèina";613
+"Beltinci";673
+"Benedikt";145
+"Bistrica ob Sotli";111
+"Bled";515
+"Bloke";62
+"Bohinj";215
+"Borovnica";151
+"Bovec";123
+"Braslovèe";317
+"Brda";192
+"Brezovica";408
+"Brežice";1876
+"Cankova";236
+"Celje";4475
+"Cerklje na Gorenjskem";237
+"Cerknica";452
+"Cerkno";101
+"Cerkvenjak";190
+"Èrenšovci";462
+"Èrna na Koroškem";214
+"Èrnomelj";956
+"Destrnik";245
+"Divaèa";155
+"Dobje";85
+"Dobrepolje";122
+"Dobrna";156
+"Dobrova - Polhov Gradec";288
+"Dobrovnik/Dobronak";143
+"Dol pri Ljubljani";206
+"Dolenjske Toplice";160
+"Domžale";1223
+"Dornava";224
+"Dravograd";443
+"Duplek";644
+"Gorenja vas - Poljane";164
+"Gorišnica";551
+"Gornja Radgona";1276
+"Gornji Grad";161
+"Gornji Petrovci";179
+"Grad";220
+"Grosuplje";784
+"Hajdina";350
+"Hoèe - Slivnica";866
+"Hodoš/Hodos";27
+"Horjul";77
+"Hrastnik";806
+"Hrpelje - Kozina";278
+"Idrija";296
+"Ig";296
+"Ilirska Bistrica";944
+"Ivanèna Gorica";683
+"Izola/Isola";1185
+"Jesenice";1861
+"Jezersko";27
+"Juršinci";240
+"Kamnik";1302
+"Kanal";241
+"Kidrièevo";544
+"Kobarid";178
+"Kobilje";47
+"Koèevje";1529
+"Komen";177
+"Komenda";194
+"Koper/Capodistria";2907
+"Kostel";35
+"Kozje";283
+"Kranj";2925
+"Kranjska Gora";294
+"Križevci";257
+"Krško";2131
+"Kungota";548
+"Kuzma";243
+"Laško";996
+"Lenart";815
+"Lendava/Lendva";1302
+"Litija";1173
+"Ljubljana";14243
+"Ljubno";184
+"Ljutomer";1090
+"Logatec";421
+"Loška dolina";125
+"Loški Potok";129
+"Lovrenc na Pohorju";335
+"Luèe";127
+"Lukovica";220
+"Majšperk";366
+"Maribor";11907
+"Markovci";352
+"Medvode";664
+"Mengeš";307
+"Metlika";393
+"Mežica";219
+"Miklavž na Dravskem polju";583
+"Miren - Kostanjevica";211
+"Mirna Peè";107
+"Mislinja";195
+"Moravèe";179
+"Moravske Toplice";501
+"Mozirje";308
+"Murska Sobota";1837
+"Muta";250
+"Naklo";224
+"Nazarje";129
+"Nova Gorica";1508
+"Novo mesto";2118
+"Odranci";118
+"Oplotnica";279
+"Ormož";1278
+"Osilnica";24
+"Pesnica";901
+"Piran/Pirano";1195
+"Pivka";301
+"Podèetrtek";273
+"Podlehnik";229
+"Podvelka";307
+"Polzela";285
+"Postojna";778
+"Prebold";341
+"Preddvor";116
+"Prevalje";342
+"Ptuj";2168
+"Puconci";636
+"Raèe - Fram";593
+"Radeèe";310
+"Radenci";464
+"Radlje ob Dravi";503
+"Radovljica";931
+"Ravne na Koroškem";701
+"Razkrižje";105
+"Ribnica";614
+"Ribnica na  Pohorju";147
+"Rogaška Slatina";824
+"Rogašovci";456
+"Rogatec";268
+"Ruše";893
+"Selnica ob Dravi";524
+"Semiè";226
+"Sevnica";1183
+"Sežana";526
+"Slovenj Gradec";790
+"Slovenska Bistrica";2420
+"Slovenske Konjice";1046
+"Sodražica";190
+"Solèava";37
+"Starše";384
+"Sveta Ana";160
+"Sveti Andraž v Slov. goricah";135
+"Sveti Jurij ob Šèavnici";266
+"Šalovci";160
+"Šempeter - Vrtojba";267
+"Šenèur";399
+"Šentilj";819
+"Šentjernej";438
+"Šentjur pri Celju";1512
+"Škocjan";214
+"Škofja Loka";759
+"Škofljica";298
+"Šmarje pri Jelšah";927
+"Šmartno ob Paki";122
+"Šoštanj";431
+"Štore";433
+"Tabor";98
+"Tišina";379
+"Tolmin";605
+"Trbovlje";1599
+"Trebnje";837
+"Trnovska vas";113
+"Trzin";143
+"Tržiè";1015
+"Turnišèe";358
+"Velenje";1983
+"Velika Polana";131
+"Velike Lašèe";157
+"Veržej";89
+"Videm";503
+"Vipava";176
+"Vitanje";117
+"Vodice";179
+"Vojnik";572
+"Vransko";178
+"Vrhnika";772
+"Vuzenica";160
+"Zagorje ob Savi";1011
+"Zavrè";167
+"Zreèe";325
+"Žalec";1727
+"Železniki";192
+"Žetale";120
+"Žiri";141
+"Žirovnica";189
+"Žužemberk";250
+
+"Vir:Statistièni urad Republike Slovenije, Popis prebivalstva, "
+"gospodinjstev in stanovanj 2002.  "
+"  "
+"Uporaba in objava podatkov dovoljena le z navedbo vira.  "
+
+"Podatki so teritorialno razvršèeni po uredbi o Standardni "
+"klasifikaciji teritorialnih enot ((seznam "
+"HREF=http://www.stat.si/StatWeb/glavnanavigacija/metode-in-klasifikac-"
+"ije/klasifikacije TARGET=_blank) opis in pojasnila), raven SKTE 5. "
+"Podatki o spremembah posameznih obèin so dostopni na (seznam "
+"HREF=http://www.stat.si/StatWeb/glavnanavigacija/metode-in-klasifikac-"
+"ije/klasifikacije/spremembe-obmocij-obcin TARGET=_blank) povezavi. V "
+"Seznamu obèin s spremembami obmoèij obèin od leta 1995 dalje je "
+"opisana vrsta spremembe, naveden je datum, s katerim je opisana "
+"teritorialna sprememba upoštevana pri teritorialnem razvršèanju enot "
+"za statistiène namene ter naveden Uradni list, v katerem so bile "
+"objavljene omenjene teritorialne opombe. V seznamu obèin je navedeno "
+"zadnje veljavno stanje imen obèin. "
+
