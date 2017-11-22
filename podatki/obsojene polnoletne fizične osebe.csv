@@ -1,0 +1,36 @@
+"Polnoletni obsojenci (znani storilci) po: KAZNIVO DEJANJE, GLAVNA"
+"KAZEN, SPOL , LETO"
+
+" ";" ";"Spol - SKUPAJ";" ";" "
+" ";" ";"2014";"2015";"2016"
+"KAZENSKI ZAKONIK - SKUPAJ"
+" ";"Glavna kazen - SKUPAJ";9410;7926;6687
+
+"KAZNIVO DEJANJE "
+"Kazniva dejanja so razvršèena po posameznih kazenskih zakonikih. "
+"Èe je na prvem mestu šifra 1. pomeni, da gre za kazniva dejanja po "
+"Kazenskem zakoniku KZ-UPB1 (uporabljen do leta 2008), èe je na prvem "
+"mestu šifra 4. gre za  kazniva dejanja po Kazenskem zakoniku KZ-1 "
+"(uporabljen od leta 2008 do 2012), èe je na prvem mestu šifra 5. gre "
+"za  kazniva dejanja po Kazenskem zakoniku KZ-1B (uporabljen od leta "
+"2012 dalje). Šifri 2. in 3. pomenita stare kazenske zakonike, ki niso "
+"veè v  uporabi. "
+"Predlagamo uporabo iskalnika (v okence 'Išèi' pri spremenljivki "
+"KAZNIVO DEJANJE vtipkajte iskani niz). "
+"Primer: "
+"Èe želite imeti podatke o »povzroèitvi prometne nesreèe iz "
+"malomarnosti« po vseh kazenskih zakonikih morate izbrati šifre "
+"1.XXXI.325, 4.XXXI.323  in 5.XXXI.323. "
+" "
+"Vir: Statistièni urad Republike Slovenije. "
+" "
+
+"Povezane vsebine: "
+"- (seznam HREF= http://www.stat.si/StatWeb/File/DocSysFile/8274 "
+"target=_blank) Metodološka pojasnila"
+
+"Ker so bili podatki o odloèitvah sodnikov pri našem podatkovnem viru "
+"(Vrhovno sodišèe Republike Slovenije, Informatizirana kazenska "
+"evidenca Vrhovnega sodišèa RS) popravljeni, smo te podatke za leto "
+"2015 popravili tudi v SI-STAT bazi."
+
