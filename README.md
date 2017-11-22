@@ -1,18 +1,23 @@
 # Analiza podatkov s programom R, 2017/18
 
+avtor: Katarina Brilej
+
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza kriminalitete
 
+V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
+V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
+
 ### Tabele:
-1. tabela: primerjeva brezposelnosti in kriminalitete (različne vrste) po slovenskih občinah
+1. tabela: analiza povezave med  brezposelnostjo in kriminaliteto (različne vrste) po slovenskih občinah
 2. tabela: analiza različnih vrst kriminalitete v Sloveniji skozi leta + primerjava glede na spol in glavno sankcijo 
 3. tabela: primerjava razmerja med ovadenimi in obsojenimi za fizične in pravne osebe skozi leta
 4. tabela: primerjava števila zaprtih in umorjenih po svetu
 
 ### Viri:
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
-* https://www.ess.gov.si/trg_dela/trg_dela_v_stevilkah/stopnja_registrirane_brezposelnosti
+* http://pxweb.stat.si/pxweb/Dialog/Saveshow.asp
 * https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate
 * https://en.wikipedia.org/wiki/List_of_countries_by_intentional_homicide_rate
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/05_statistika_pravne_osebe/07_13736_ovadene_prav_osebe/07_13736_ovadene_prav_osebe.asp
