@@ -6,18 +6,18 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza kriminalitete
 
-V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
+V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih obƒinah, primerjala bom tudi katere vrste kriminalitete so najpogostej≈°e po regijah. Prav tako bom analizirala razliƒçne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
 V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
 ### Tabele:
 1. tabela: brezposelnost in kriminaliteta (različne vrste) po slovenskih občinah
-* stolpci: stopnja kriminalitete, stopnja brezposelnosti, ob?ina, leto
+* stolpci: stopnja kriminalitete, stopnja brezposelnosti, občina, leto
 2. tabela: različne vrste kriminalitete v Sloveniji skozi leta glede na spol in glavno sankcijo 
 * stolpci: vrste kriminalitete, leto, spol, glavna sankcija
 3. tabela: razmerja med ovadenimi in obsojenimi za fizične in pravne osebe skozi leta
-* stolpci: fizi?ne ovadene, pravne ovadene, fizi?ne obsojene, pravne obsojene, leto
+* stolpci: fizične ovadene, pravne ovadene, fizične obsojene, pravne obsojene, leto
 4. tabela: število zaprtih in umorjenih po svetu
-* stolpci: dr�ava, �tevilo zaprtih, �tevilo umorjenih
+* stolpci: dr∏ava, število zaprtih, število umorjenih
 
 ### Viri:
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
