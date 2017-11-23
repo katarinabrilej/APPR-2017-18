@@ -10,10 +10,14 @@ V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in krimina
 V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
 ### Tabele:
-1. tabela: analiza povezave med  brezposelnostjo in kriminaliteto (različne vrste) po slovenskih občinah
-2. tabela: analiza različnih vrst kriminalitete v Sloveniji skozi leta + primerjava glede na spol in glavno sankcijo 
-3. tabela: primerjava razmerja med ovadenimi in obsojenimi za fizične in pravne osebe skozi leta
-4. tabela: primerjava števila zaprtih in umorjenih po svetu
+1. tabela: brezposelnost in kriminaliteta (različne vrste) po slovenskih občinah
+* stolpci: stopnja kriminalitete, stopnja brezposelnosti, ob?ina, leto
+2. tabela: različne vrste kriminalitete v Sloveniji skozi leta glede na spol in glavno sankcijo 
+* stolpci: vrste kriminalitete, leto, spol, glavna sankcija
+3. tabela: razmerja med ovadenimi in obsojenimi za fizične in pravne osebe skozi leta
+* stolpci: fizi?ne ovadene, pravne ovadene, fizi?ne obsojene, pravne obsojene, leto
+4. tabela: število zaprtih in umorjenih po svetu
+* stolpci: dr�ava, �tevilo zaprtih, �tevilo umorjenih
 
 ### Viri:
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
