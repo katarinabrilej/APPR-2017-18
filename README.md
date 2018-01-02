@@ -6,8 +6,13 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza kriminalitete
 
+<<<<<<< HEAD
 V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih obèinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala razliène vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
 V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fiziènih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
+=======
+V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih obÄinah, primerjala bom tudi katere vrste kriminalitete so najpogostejÅ¡e po regijah. Prav tako bom analizirala razliÄne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deleÅ¾ni.
+V nadaljevanju bom primerjala tudi razmerje med Å¡tevilom ovadenih in obsojenih pri fiziÄnih in pravnih osebah (kje je pravni sistem uspeÅ¡nejÅ¡i). Na koncu pa bom slovenske podatke o Å¡tevilu umorjenih in zaprtih primerjala s svetovnimi. 
+>>>>>>> 17cd1242a98bda3bd589fdc55af1d8f6465489b1
 
 ### Tabele:
 1. tabela: brezposelnost in kriminaliteta (razliène vrste) po slovenskih obèinah
@@ -21,7 +26,7 @@ V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih p
 
 ### Viri:
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
-* http://pxweb.stat.si/pxweb/Dialog/Saveshow.asp
+* http://pxweb.stat.si/pxweb/Database/Dem_soc/07_trg_dela/90_arhivski_podatki/03_akt_preb_let_arhiv/03_akt_preb_let_arhiv.asp
 * https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate
 * https://en.wikipedia.org/wiki/List_of_countries_by_intentional_homicide_rate
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/05_statistika_pravne_osebe/07_13736_ovadene_prav_osebe/07_13736_ovadene_prav_osebe.asp
