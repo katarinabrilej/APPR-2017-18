@@ -2,22 +2,22 @@
 
 avtor: Katarina Brilej
 
-Repozitorij z gradivi pri predmetu APPR v Å¡tudijskem letu 2017/18
+Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza kriminalitete
 
-V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih obÆ’inah, primerjala bom tudi katere vrste kriminalitete so najpogostejâ‰ˆÂ°e po regijah. Prav tako bom analizirala razliÆ’Ã§ne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deleÅ¾ni.
-V nadaljevanju bom primerjala tudi razmerje med Å¡tevilom ovadenih in obsojenih pri fiziÄnih in pravnih osebah (kje je pravni sistem uspeÅ¡nejÅ¡i). Na koncu pa bom slovenske podatke o Å¡tevilu umorjenih in zaprtih primerjala s svetovnimi. 
+V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih obèinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala razliène vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deleni.
+V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fiziènih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
 ### Tabele:
-1. tabela: brezposelnost in kriminaliteta (razliÄne vrste) po slovenskih obÄinah
-* stolpci: stopnja kriminalitete, stopnja brezposelnosti, obÄina, leto
-2. tabela: razliÄne vrste kriminalitete v Sloveniji skozi leta glede na spol in glavno sankcijo 
+1. tabela: brezposelnost in kriminaliteta (razliène vrste) po slovenskih obèinah
+* stolpci: stopnja kriminalitete, stopnja brezposelnosti, obèina, leto
+2. tabela: razliène vrste kriminalitete v Sloveniji skozi leta glede na spol in glavno sankcijo 
 * stolpci: vrste kriminalitete, leto, spol, glavna sankcija
-3. tabela: razmerja med ovadenimi in obsojenimi za fiziÄne in pravne osebe skozi leta
-* stolpci: fiziÄne ovadene, pravne ovadene, fiziÄne obsojene, pravne obsojene, leto
-4. tabela: Å¡tevilo zaprtih in umorjenih po svetu
-* stolpci: drâˆava, Å¡tevilo zaprtih, Å¡tevilo umorjenih
+3. tabela: razmerja med ovadenimi in obsojenimi za fiziène in pravne osebe skozi leta
+* stolpci: fiziène ovadene, pravne ovadene, fiziène obsojene, pravne obsojene, leto
+4. tabela: število zaprtih in umorjenih po svetu
+* stolpci: dr???ava, število zaprtih, število umorjenih
 
 ### Viri:
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
@@ -31,10 +31,10 @@ V nadaljevanju bom primerjala tudi razmerje med Å¡tevilom ovadenih in obsojenih 
 
 ## Program
 
-Glavni program in poroÄilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
-se izvedejo programi, ki ustrezajo drugi, tretji in Äetrti fazi projekta:
+Glavni program in poroèilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
+se izvedejo programi, ki ustrezajo drugi, tretji in èetrti fazi projekta:
 
-* obdelava, uvoz in ÄiÅ¡Äenje podatkov: `uvoz/uvoz.r`
+* obdelava, uvoz in èišèenje podatkov: `uvoz/uvoz.r`
 * analiza in vizualizacija podatkov: `vizualizacija/vizualizacija.r`
 * napredna analiza podatkov: `analiza/analiza.r`
 
@@ -44,19 +44,19 @@ shranijo v mapo `../zemljevidi/` (torej izven mape projekta).
 
 ## Potrebni paketi za R
 
-Za zagon tega vzorca je potrebno namestiti sledeÄe pakete za R:
+Za zagon tega vzorca je potrebno namestiti sledeèe pakete za R:
 
-* `knitr` - za izdelovanje poroÄila
-* `rmarkdown` - za prevajanje poroÄila v obliki RMarkdown
+* `knitr` - za izdelovanje poroèila
+* `rmarkdown` - za prevajanje poroèila v obliki RMarkdown
 * `shiny` - za prikaz spletnega vmesnika
 * `DT` - za prikaz interaktivne tabele
 * `maptools` - za uvoz zemljevidov
 * `sp` - za delo z zemljevidi
-* `digest` - za zgoÅ¡Äevalne funkcije (uporabljajo se za shranjevanje zemljevidov)
+* `digest` - za zgošèevalne funkcije (uporabljajo se za shranjevanje zemljevidov)
 * `readr` - za branje podatkov
 * `rvest` - za pobiranje spletnih strani
 * `reshape2` - za preoblikovanje podatkov v obliko *tidy data*
 * `dplyr` - za delo s podatki
-* `gsubfn` - za delo z nizi (ÄiÅ¡Äenje podatkov)
+* `gsubfn` - za delo z nizi (èišèenje podatkov)
 * `ggplot2` - za izrisovanje grafov
-* `extrafont` - za pravilen prikaz Å¡umnikov (neobvezno)
+* `extrafont` - za pravilen prikaz šumnikov (neobvezno)
