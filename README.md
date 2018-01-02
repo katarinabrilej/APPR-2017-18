@@ -2,27 +2,25 @@
 
 avtor: Katarina Brilej
 
-Repozitorij z gradivi pri predmetu APPR v �tudijskem letu 2017/18
+Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza kriminalitete
 
-<<<<<<< HEAD
-V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih ob�inah, primerjala bom tudi katere vrste kriminalitete so najpogostej�e po regijah. Prav tako bom analizirala razli�ne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili dele�ni.
-V nadaljevanju bom primerjala tudi razmerje med �tevilom ovadenih in obsojenih pri fizi�nih in pravnih osebah (kje je pravni sistem uspe�nej�i). Na koncu pa bom slovenske podatke o �tevilu umorjenih in zaprtih primerjala s svetovnimi. 
+V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
+V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 =======
 V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
 V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
->>>>>>> 17cd1242a98bda3bd589fdc55af1d8f6465489b1
 
 ### Tabele:
-1. tabela: brezposelnost in kriminaliteta (razli�ne vrste) po slovenskih ob�inah
-* stolpci: stopnja kriminalitete, stopnja brezposelnosti, ob�ina, leto
-2. tabela: razli�ne vrste kriminalitete v Sloveniji skozi leta glede na spol in glavno sankcijo 
+1. tabela: brezposelnost in kriminaliteta (različne vrste) po slovenskih občinah
+* stolpci: stopnja kriminalitete, stopnja brezposelnosti, ob?ina, leto
+2. tabela: različne vrste kriminalitete v Sloveniji skozi leta glede na spol in glavno sankcijo 
 * stolpci: vrste kriminalitete, leto, spol, glavna sankcija
-3. tabela: razmerja med ovadenimi in obsojenimi za fizi�ne in pravne osebe skozi leta
-* stolpci: fizi�ne ovadene, pravne ovadene, fizi�ne obsojene, pravne obsojene, leto
-4. tabela: �tevilo zaprtih in umorjenih po svetu
-* stolpci: dr???ava, �tevilo zaprtih, �tevilo umorjenih
+3. tabela: razmerja med ovadenimi in obsojenimi za fizi?ne in pravne osebe skozi leta
+* stolpci: fizične ovadene, pravne ovadene, fizične obsojene, pravne obsojene, leto
+4. tabela: število zaprtih in umorjenih po svetu
+* stolpci: država, število zaprtih, ?tevilo umorjenih
 
 ### Viri:
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
@@ -36,10 +34,10 @@ V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih 
 
 ## Program
 
-Glavni program in poro�ilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
-se izvedejo programi, ki ustrezajo drugi, tretji in �etrti fazi projekta:
+Glavni program in poro?ilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
+se izvedejo programi, ki ustrezajo drugi, tretji in četrti fazi projekta:
 
-* obdelava, uvoz in �i��enje podatkov: `uvoz/uvoz.r`
+* obdelava, uvoz in čiščenje podatkov: `uvoz/uvoz.r`
 * analiza in vizualizacija podatkov: `vizualizacija/vizualizacija.r`
 * napredna analiza podatkov: `analiza/analiza.r`
 
@@ -49,19 +47,19 @@ shranijo v mapo `../zemljevidi/` (torej izven mape projekta).
 
 ## Potrebni paketi za R
 
-Za zagon tega vzorca je potrebno namestiti slede�e pakete za R:
+Za zagon tega vzorca je potrebno namestiti sledeče pakete za R:
 
-* `knitr` - za izdelovanje poro�ila
-* `rmarkdown` - za prevajanje poro�ila v obliki RMarkdown
+* `knitr` - za izdelovanje poro?ila
+* `rmarkdown` - za prevajanje poro?ila v obliki RMarkdown
 * `shiny` - za prikaz spletnega vmesnika
 * `DT` - za prikaz interaktivne tabele
 * `maptools` - za uvoz zemljevidov
 * `sp` - za delo z zemljevidi
-* `digest` - za zgo��evalne funkcije (uporabljajo se za shranjevanje zemljevidov)
+* `digest` - za zgoščevalne funkcije (uporabljajo se za shranjevanje zemljevidov)
 * `readr` - za branje podatkov
 * `rvest` - za pobiranje spletnih strani
 * `reshape2` - za preoblikovanje podatkov v obliko *tidy data*
 * `dplyr` - za delo s podatki
-* `gsubfn` - za delo z nizi (�i��enje podatkov)
+* `gsubfn` - za delo z nizi (čiščenje podatkov)
 * `ggplot2` - za izrisovanje grafov
-* `extrafont` - za pravilen prikaz �umnikov (neobvezno)
+* `extrafont` - za pravilen prikaz šumnikov (neobvezno)
