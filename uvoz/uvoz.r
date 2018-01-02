@@ -14,10 +14,12 @@ uvozi.brezposelnost <- function(){
 
 brezposelnost <- uvozi.brezposelnost()
 
+brezposelnost["leto"] <- NA
+brezposelnost$leto <- rep(2015, 193)
+
 uvozi.obsojeni_po_obcinah <- function(){
-  data <- read_csv2("podatki/obsojeni_po_obcinah.csv", skip = 3,
-                    locale = locale(encoding = "Windows-1250"), n_max = 213) %>%
-    melt()
+  data <- read_csv2("podatki/obsojeni_po_obcinah.csv", skip = 2,
+                    locale = locale(encoding = "Windows-1250"), n_max = 213) 
   #colnames(data) <- c("obcina","leto","stevilo")
   return(data)
 }
