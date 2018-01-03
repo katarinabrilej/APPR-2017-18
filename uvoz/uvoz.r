@@ -37,54 +37,25 @@ uvozi.obsojeni_po_kaznivem_dejanju_arhiv <- function(){
 
 obsojeni_po_kaznivem_dejanju_arhiv <- uvozi.obsojeni_po_kaznivem_dejanju_arhiv()
 
-uvozi.obsojene_pravne_osebe <- function(){
-  data <- read_csv2("podatki/obsojene_pravne_osebe.csv", skip = 2,
-                    locale = locale(encoding = "Windows-1250"), n_max = 1)
-  data <- melt(data, id.vars = "X1", variable.name = "leto", value.name = "stevilo obsojenih pravnih oseb")
-  data$X1 <- NULL
-  return(data)
-}
-
-obsojene_pravne_osebe <-uvozi.obsojene_pravne_osebe()
-
-uvozi.ovadene_pravne_osebe <- function(){
-  data <- read_csv2("podatki/ovadene_pravne_osebe.csv", skip = 4,
-                    locale = locale(encoding = "Windows-1250"), n_max = 1)
-  data <- melt(data, id.vars = "X1", variable.name = "leto", value.name = "stevilo ovadenih pravnih oseb")
-  data$X1 <- NULL
-  data <- data[-c(1),]
-  return(data)
-}
-
-ovadene_pravne_osebe <-uvozi.ovadene_pravne_osebe()
-
-uvozi.obsojene_polnoletne_osebe <- function(){
-  data <- read_csv2("podatki/obsojene_polnoletne_osebe.csv", skip = 4,
-                    locale = locale(encoding = "Windows-1250"), n_max = 2)
-  data <- data[-c(1),]
-  data <- melt(data, id.vars = "X1", variable.name = "leto", value.name = "stevilo obsojenih polnoletnih fizicnih oseb")
-  data <- data[-c(1),]
-  data$X1 <- NULL
-  return(data)
-}
-
-obsojene_polnoletne_osebe <-uvozi.obsojene_polnoletne_osebe()
-
-uvozi.ovadene_polnoletne_osebe <- function(){
-  data <- read_csv2("podatki/ovadene_polnoletne_osebe.csv", skip = 4,
-                    locale = locale(encoding = "Windows-1250"), n_max = 1)
-  data <- melt(data, id.vars = "X1", variable.name = "leto", value.name = "stevilo ovadenih polnoletnih fizicnih oseb")
-  data$X1 <- NULL
-  return(data)
-}
-
-ovadene_polnoletne_osebe <-uvozi.ovadene_polnoletne_osebe()
-
-skupno1 <- merge(ovadene_polnoletne_osebe, obsojene_polnoletne_osebe, by = "leto")
-skupno2 <- merge(ovadene_pravne_osebe, obsojene_pravne_osebe, by = "leto")
-skupno <- merge(skupno2, skupno1, by = "leto")
 
 #uvozimo še tabele iz wikipedie
+ uvozi.stevilo_zaprtih <- function(){
+   link <- "https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate"
+   stran <- html_session(link) %>% read_html()
+   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(dec = ",")
+   tabela <- tabela[[2]]
+   return(tabela)
+ }
 
+stevilo_zaprtih <- uvozi.stevilo_zaprtih()
 
+uvozi.stevilo_umorjenih <- function(){
+  link <- "https://en.wikipedia.org/wiki/List_of_countries_by_intentional_homicide_rate"
+  stran <- html_session(link) %>% read_html()
+  tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(fill = TRUE, dec = ",")
+  tabela <- tabela[[2]]
+  return(tabela)
+}
+
+stevilo_umorjenih <- uvozi.stevilo_umorjenih()
 
