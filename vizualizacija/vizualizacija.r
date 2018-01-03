@@ -1,4 +1,13 @@
 # 3. faza: Vizualizacija podatkov
+library(ggplot2)
+library(dplyr)
+
+#primerjava stopnje umorjenih in stopnje zaprtih
+
+umorjeni_urejeno <- stevilo_umorjenih[order(stevilo_umorjenih$Stopnja_umorjenih, decreasing=TRUE), ] %>% .[1:10, ]
+
+graf <- ggplot(umorjeni_urejeno) + aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + geom_col() 
+
 
 # Uvozimo zemljevid.
 zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",

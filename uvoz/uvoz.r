@@ -39,23 +39,33 @@ obsojeni_po_kaznivem_dejanju_arhiv <- uvozi.obsojeni_po_kaznivem_dejanju_arhiv()
 
 
 #uvozimo še tabele iz wikipedie
+#uvoz tabele s podatki o stopnji zaprtih
  uvozi.stevilo_zaprtih <- function(){
    link <- "https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate"
    stran <- html_session(link) %>% read_html()
-   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(dec = ",")
-   tabela <- tabela[[2]]
+   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(dec = ",") %>% .[[2]] %>% 
+     .[-c(1),]
+   colnames(tabela) <- c("Drzava", "Stopnja_zaprtih")
+   tabela$Stopnja_zaprtih <- parse_number(tabela$Stopnja_zaprtih)
    return(tabela)
  }
 
 stevilo_zaprtih <- uvozi.stevilo_zaprtih()
 
+#uvoz tabele s podatki o stopnji umorov
 uvozi.stevilo_umorjenih <- function(){
   link <- "https://en.wikipedia.org/wiki/List_of_countries_by_intentional_homicide_rate"
   stran <- html_session(link) %>% read_html()
-  tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(fill = TRUE, dec = ",")
-  tabela <- tabela[[2]]
+  tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(fill = TRUE, dec = ",") %>%
+    .[[2]] %>% .[-c(1),] %>% .[c(1,2)]
+  colnames(tabela) <- c("Drzava", "Stopnja_umorjenih")
+  tabela$Stopnja_umorjenih <- parse_number(tabela$Stopnja_umorjenih)
   return(tabela)
 }
 
+# zadnji dve tabeli združimo v eno
 stevilo_umorjenih <- uvozi.stevilo_umorjenih()
+skupno <- inner_join(stevilo_zaprtih,stevilo_umorjenih, by = "Drzava")
+skupno$umorjeni_na_zaprtega <- (skupno$Stopnja_umorjenih / skupno$Stopnja_zaprtih) * 100
+
 
