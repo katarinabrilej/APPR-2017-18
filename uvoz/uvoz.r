@@ -29,6 +29,13 @@ uvozi.obsojeni_po_obcinah <- function(){
 
 obsojeni_po_obcinah <- uvozi.obsojeni_po_obcinah()
 
+#lvls <- levels(brezposelnost$leto)
+#krim <- unique(obsojeni_po_obcinah$obcina)
+#razlicni <- lvls != krim
+#primerjava <- data.frame(lvls, krim, 
+#                         stringsAsFactors = FALSE)[razlicni, ]
+#rownames(primerjava) <- NULL
+
 uvozi.obsojeni_po_kaznivem_dejanju_arhiv <- function(){
   data <- read_csv2("podatki/arhiv_obsojeni.csv", skip = 3,
                     locale = locale(encoding = "Windows-1250"), n_max = 19)
