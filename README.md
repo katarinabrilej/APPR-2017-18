@@ -7,34 +7,25 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 ## Analiza kriminalitete
 
 V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
-V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
-
-V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
-V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
+Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
 ### Tabele:
 1. tabela: brezposelnost in kriminaliteta (različne vrste) po slovenskih občinah
-* stolpci: stopnja kriminalitete, stopnja brezposelnosti, ob?ina, leto
+* stolpci: stopnja kriminalitete, stopnja brezposelnosti, občina, leto
 2. tabela: različne vrste kriminalitete v Sloveniji skozi leta glede na spol in glavno sankcijo 
 * stolpci: vrste kriminalitete, leto, spol, glavna sankcija
-3. tabela: razmerja med ovadenimi in obsojenimi za fizi?ne in pravne osebe skozi leta
-* stolpci: fizične ovadene, pravne ovadene, fizične obsojene, pravne obsojene, leto
-4. tabela: število zaprtih in umorjenih po svetu
-* stolpci: država, število zaprtih, ?tevilo umorjenih
+3. tabela: število zaprtih in umorjenih po svetu
+* stolpci: država, število zaprtih, število umorjenih
 
 ### Viri:
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/07_trg_dela/90_arhivski_podatki/03_akt_preb_let_arhiv/03_akt_preb_let_arhiv.asp
 * https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate
 * https://en.wikipedia.org/wiki/List_of_countries_by_intentional_homicide_rate
-* http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/05_statistika_pravne_osebe/07_13736_ovadene_prav_osebe/07_13736_ovadene_prav_osebe.asp
-* http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/01_13601_ovadene_poln_osebe/01_13601_ovadene_poln_osebe.asp
-* http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/03_13603_obsojene_poln_osebe/03_13603_obsojene_poln_osebe.asp
-* http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/05_statistika_pravne_osebe/15_13756_obsojene_prav_osebe/15_13756_obsojene_prav_osebe.asp
 
 ## Program
 
-Glavni program in poro?ilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
+Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
 se izvedejo programi, ki ustrezajo drugi, tretji in četrti fazi projekta:
 
 * obdelava, uvoz in čiščenje podatkov: `uvoz/uvoz.r`
