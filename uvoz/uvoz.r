@@ -23,6 +23,7 @@ uvozi.brezposelnost2 <- function(){
   data$X2 <- NULL
   data <- data[-c(1),]
   data <- data[-seq(1,23,2),]
+  data <- data[-c(1),]
   data <- melt(data, id.vars = "X1", variable.name = "leto")
   colnames(data) <- c("leto","obcina","stopnja brezposelnosti")
   return(data)
@@ -42,20 +43,34 @@ uvozi.obsojeni_po_obcinah <- function(){
 
 obsojeni_po_obcinah <- uvozi.obsojeni_po_obcinah()
 
+uvozi.obsojeni_po_obcinah2 <- function(){
+  data <- read_csv2("podatki/obsojeni_po_obcinah2.csv", skip = 2,
+                    locale = locale(encoding = "Windows-1250"), n_max = 12, na=c("-", "z")) 
+  data <- data[-c(1),]
+  data <- data[-c(11),]
+  data <- melt(data, id.vars = "X1", variable.name = "obcina")
+  colnames(data) <- c("leto","obcina","stevilo_obsojenih")
+  return(data)
+}
+
+obsojeni_po_obcinah2 <- uvozi.obsojeni_po_obcinah2()
+
+#občine v obeh tabelah se očitno ujemajo
 lvls <- levels(brezposelnost2$obcina)
-#krim <- unique(obsojeni_po_obcinah$obcina)
-#razlicni <- lvls != krim
-#primerjava <- data.frame(lvls, krim, 
-#                         stringsAsFactors = FALSE)[razlicni, ]
+obs <- unique(obsojeni_po_obcinah$obcina)
+razlicni <- lvls != krim
+#primerjava <- data.frame(lvls, obs, 
+#                        stringsAsFactors = FALSE)[razlicni, ]
 #rownames(primerjava) <- NULL
+
+brezposelnost_in_obsojeni <- brezposelnost2
+brezposelnost_in_obsojeni$stevilo_obsojenih <- obsojeni_po_obcinah2$stevilo_obsojenih
 
 uvozi.obsojeni_po_kaznivem_dejanju_arhiv <- function(){
   data <- read_csv2("podatki/arhiv_obsojeni.csv", skip = 3,
                     locale = locale(encoding = "Windows-1250"), n_max = 19)
   return(data)
 }
-
-obsojeni_po_kaznivem_dejanju_arhiv <- uvozi.obsojeni_po_kaznivem_dejanju_arhiv()
 
 
 #uvozimo še tabele iz wikipedie
