@@ -6,8 +6,15 @@ library(dplyr)
 
 umorjeni_urejeno <- stevilo_umorjenih[order(stevilo_umorjenih$Stopnja_umorjenih, decreasing=TRUE), ] %>% .[1:10, ]
 
-graf1 <- ggplot(umorjeni_urejeno) + aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + geom_col()
+graf1 <- ggplot(umorjeni_urejeno) + aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + 
+  aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava)+ geom_col()
 print(graf1)
+
+#gibanje kriminalitete v ljubljani v obdobju 2006-2015
+
+Ljubljana <- brezposelnost_in_obsojeni[brezposelnost_in_obsojeni$obcina == "Ljubljana",]
+graf2 <- ggplot(Ljubljana) + aes(x = leto, y = stevilo_obsojenih, group = 1) + geom_line()
+print(graf2)
 
 
 # Uvozimo zemljevid.
