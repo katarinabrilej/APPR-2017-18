@@ -25,7 +25,7 @@ uvozi.brezposelnost2 <- function(){
   data <- data[-seq(1,23,2),]
   data <- data[-c(1),]
   data <- melt(data, id.vars = "X1", variable.name = "leto")
-  colnames(data) <- c("leto","obcina","stopnja brezposelnosti")
+  colnames(data) <- c("leto","obcina","stopnja_brezposelnosti")
   return(data)
 }
 
