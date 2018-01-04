@@ -6,7 +6,8 @@ library(dplyr)
 
 umorjeni_urejeno <- stevilo_umorjenih[order(stevilo_umorjenih$Stopnja_umorjenih, decreasing=TRUE), ] %>% .[1:10, ]
 
-graf <- ggplot(umorjeni_urejeno) + aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + geom_col() 
+graf1 <- ggplot(umorjeni_urejeno) + aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + geom_col()
+print(graf1)
 
 
 # Uvozimo zemljevid.
@@ -20,3 +21,4 @@ zemljevid <- pretvori.zemljevid(zemljevid)
 # Izračunamo povprečno velikost družine
 povprecja <- druzine %>% group_by(obcina) %>%
   summarise(povprecje = sum(velikost.druzine * stevilo.druzin) / sum(stevilo.druzin))
+
