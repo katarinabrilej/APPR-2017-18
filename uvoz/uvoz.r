@@ -17,6 +17,19 @@ uvozi.brezposelnost <- function(){
 
 brezposelnost <- uvozi.brezposelnost()
 
+uvozi.brezposelnost2 <- function(){
+  data <- read_csv2("podatki/brezposelnost2.csv", skip = 3,
+                    locale = locale(encoding = "Windows-1250"), n_max = 24, na=c("-")) %>% fill(X1) 
+  data$X2 <- NULL
+  data <- data[-c(1),]
+  data <- data[-seq(1,23,2),]
+  data <- melt(data, id.vars = "X1", variable.name = "leto")
+  colnames(data) <- c("leto","obcina","stopnja brezposelnosti")
+  return(data)
+}
+
+brezposelnost2 <- uvozi.brezposelnost2()
+
 
 uvozi.obsojeni_po_obcinah <- function(){
   data <- read_csv2("podatki/obsojeni_po_obcinah.csv", skip = 3,
@@ -29,7 +42,7 @@ uvozi.obsojeni_po_obcinah <- function(){
 
 obsojeni_po_obcinah <- uvozi.obsojeni_po_obcinah()
 
-#lvls <- levels(brezposelnost$leto)
+lvls <- levels(brezposelnost2$obcina)
 #krim <- unique(obsojeni_po_obcinah$obcina)
 #razlicni <- lvls != krim
 #primerjava <- data.frame(lvls, krim, 
