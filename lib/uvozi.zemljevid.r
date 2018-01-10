@@ -60,7 +60,7 @@ uvozi.zemljevid <- function(url, pot.zemljevida, mapa = "../zemljevidi",
 
 # Primer uvoza zemljevida (slovenske občine)
 # obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-#                           "OB/OB", encoding = "Windows-1250")
+                           "OB/OB", encoding = "Windows-1250")
 
 # Funkcija pretvori.zemljevid(podatki, zemljevid, stolpec, novi = NULL)
 #
@@ -77,3 +77,4 @@ pretvori.zemljevid <- function(zemljevid) {
   data$id <- as.character(0:(nrow(data)-1))
   return(inner_join(fo, data, by="id"))
 }
+
