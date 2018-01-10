@@ -41,6 +41,7 @@ uvozi.obsojeni_po_obcinah <- function(){
   return(data)
 }
 
+
 obsojeni_po_obcinah <- uvozi.obsojeni_po_obcinah()
 
 uvozi.obsojeni_po_obcinah2 <- function(){
@@ -66,12 +67,29 @@ razlicni <- lvls != krim
 brezposelnost_in_obsojeni <- brezposelnost2
 brezposelnost_in_obsojeni$stevilo_obsojenih <- obsojeni_po_obcinah2$stevilo_obsojenih
 
-uvozi.obsojeni_po_kaznivem_dejanju_arhiv <- function(){
-  data <- read_csv2("podatki/arhiv_obsojeni.csv", skip = 3,
-                    locale = locale(encoding = "Windows-1250"), n_max = 19)
-  return(data)
-}
-
+obsojeni_po_kaznivem_dejanju_arhiv <- read_csv2("podatki/arhiv_obsojeni.csv", skip = 3,
+                    locale = locale(encoding = "Windows-1250"),n_max = 19)
+  
+  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[2] <- c('zaporna kazen')
+  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[18] <- c('denarna kazen')
+  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[34] <- c('sodni opomin')
+  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[50] <- c('kazen opuscena')
+  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[66] <- c('varnostni ukrep brez izreka kazni')
+  
+obsojeni_arhiv <- obsojeni_po_kaznivem_dejanju_arhiv  
+stolpci1 <- data.frame(sankcija = colnames(obsojeni_arhiv) %>% { gsub("X.*", NA, .) },
+                        leto = obsojeni_arhiv[2, ] %>% unlist() %>% parse_number(),
+                        spol = obsojeni_arhiv[1, ] %>% unlist()) %>% fill(1:2 , 3) %>% apply(1, paste, collapse = "")
+  
+  stolpci1[1] <- "kaznivo_dejanje"
+  colnames(obsojeni_arhiv) <- stolpci1
+  
+  obsojeni_arhiv <- melt(obsojeni_arhiv[-c(1, 2), ], value.name = "stevilo.obsojenih",
+                               id.vars = "kaznivo_dejanje", variable.name = "stolpec") %>%
+    mutate(stolpec = parse_character(stolpec)) %>% transmute(leto = stolpec %>% strapplyc("([0-9]+)") %>% unlist() %>% parse_number(),
+  sankcija = stolpec %>% strapplyc("^([^0-9]+)") %>% unlist() %>% factor(), kaznivo_dejanje,
+  spol = stolpec %>% strapplyc("([^0-9]+)$") %>% unlist() %>% factor(), stevilo.obsojenih)
+  
 
 #uvozimo še tabele iz wikipedie
 #uvoz tabele s podatki o stopnji zaprtih
