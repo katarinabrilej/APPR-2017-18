@@ -13,9 +13,23 @@ print(graf1)
 #gibanje kriminalitete v ljubljani v obdobju 2006-2015
 
 Ljubljana <- brezposelnost_in_obsojeni[brezposelnost_in_obsojeni$obcina == "Ljubljana",]
-graf2 <- ggplot(Ljubljana) + aes(x = leto, y = stevilo_obsojenih, group = 1) + geom_line()
+Ljubljana$stopnja_brezposelnosti <- parse_number(Ljubljana$stopnja_brezposelnosti)
+Ljubljana$stevilo_obsojenih <- parse_number(Ljubljana$stevilo_obsojenih)
+graf2 <- ggplot(Ljubljana) + aes(x = leto, y = stopnja_brezposelnosti, group = 1) + geom_line()
 print(graf2)
 
+#graf3 <- ggplot(Ljubljana, aes(leto)) + geom_line(aes(y = stevilo_obsojenih, colour = "stevilo_obsojenih")) +
+#  geom_line(aes(y = stevilo_obsojenih, colour = "stopnja_brezposelnosti"))
+#print(graf3)
+
+lj <- melt(Ljubljana[, c(1,3,4)], id = "leto")
+
+graf3 <- ggplot(data=test_data_long,
+       aes(x=leto, y=value, colour=variable)) +
+  geom_line()
+
+print(graf3)
+  
 
 # Uvozimo zemljevid.
 zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
