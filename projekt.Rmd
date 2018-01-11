@@ -7,10 +7,10 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-runtime: shiny
+#runtime: shiny
 ---
 
-```{r setup, echo=FALSE, results='hide', message=FALSE}
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning  = FALSE}
 # Če želimo nastaviti pisave v PDF-ju, odkomentiramo
 # in sledimo navodilom v programu.
 #source("fontconfig.r", encoding = "UTF-8")
@@ -22,7 +22,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 # Izbira teme
 
 V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
-V nadaljevanju bom primerjala tudi razmerje med številom ovadenih in obsojenih pri fizičnih in pravnih osebah (kje je pravni sistem uspešnejši). Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
+Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
 povezave do virov:
 
@@ -39,17 +39,19 @@ povezave do virov:
 
 # Obdelava, uvoz in čiščenje podatkov
 
-```{r uvoz, echo=FALSE, message=FALSE}
+```{r uvoz, echo=FALSE, message=FALSE, warning  = FALSE}
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
 Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
 z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
+1. `obsojeni_arhiv` - podatki o številu obsojenih glede na spol, kaznivo dejanje ter sankcijo, ki so je bili deležni
+  - `leto` - spremenljivka: leto meritve (število),
+  - `sankcija` - spremenljivka: izrečena sankcija (neurejen faktor),
+  - `kaznivo_dejanje` - spremenljivka: vrsta kaznivega dejanja, ki ga je obsojeni storil (neurejen faktor),
+  - `spol` - spremenljivka: spol obsojenega (neurejen faktor)
+  - `stevilo.obsojenih` - meritev: število obsojenih (število)
 
 2. `obcine` - podatki o občinah
   - `obcina` - spremenljivka: ime občine (neurejen faktor),
@@ -62,54 +64,18 @@ z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
   - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
   - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
 
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
+```{r umorjeni, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Stopnja umorjenih po svetu'}
 
-Spodnji graf prikazuje porazdelitev števila naselij v občinah.
-
-```{r histogram, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
-ggplot(obcine, aes(x = naselja)) + geom_histogram() +
+ggplot(umorjeni.urejeno) + aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + 
+#  aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + geom_col() +
   ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
 ```
 
 ***
 
 # Analiza in vizualizacija podatkov
-
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
-```
-
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
-
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-ggplot() + geom_polygon(data = left_join(zemljevid, povprecja, by = c("OB_UIME" = "obcina")),
-                        aes(x = long, y = lat, group = group, fill = povprecje)) +
-  ggtitle("Povprečno število otrok v družini") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "Povprečje"))
-```
+#```
 
 ***
-
-# Napredna analiza podatkov
-
-```{r analiza, echo=FALSE, message=FALSE}
-source("analiza/analiza.r", encoding = "UTF-8")
-```
-
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
-
-```{r graf, echo=FALSE, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-ggplot(inner_join(obcine, data.frame(obcina = names(skupine),
-                                     skupina = factor(skupine)), by = "obcina")
-, aes(x = povrsina, y = naselja, color = skupina, size = prebivalci/1000)) + geom_point() +
-  ggtitle("Število naselij glede na površino občine") +
-  xlab(expression("Površina (km"^2 * ")")) + ylab("Št. naselij") +
-  guides(color = guide_legend(title = "Skupina"),
-         size = guide_legend(title = "Prebivalci (* 1000)"))
-```
-
-***
-
-```{r shiny, echo = FALSE}
-shinyAppDir("shiny", options=list(width="100%", height=600))
-```

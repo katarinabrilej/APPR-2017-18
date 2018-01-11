@@ -122,3 +122,4 @@ skupno <- inner_join(stevilo_zaprtih,stevilo_umorjenih, by = "Drzava")
 skupno$umorjeni_na_zaprtega <- (skupno$Stopnja_umorjenih / skupno$Stopnja_zaprtih) * 100
 
 
+
