@@ -4,7 +4,9 @@ library(dplyr)
 
 #10 držav z največjih številom umorjenih na 100000 prebivalcev
 umorjeni.urejeno <- umorjeni[order(umorjeni$umorjeni, decreasing=TRUE), ] %>% .[1:10, ]
-graf1 <- ggplot(umorjeni.urejeno) + aes(x = Drzava, y = umorjeni, fill = Drzava) + geom_col()
+graf1 <- ggplot(umorjeni.urejeno) + aes(x = Drzava, y = umorjeni, fill = Drzava) + geom_col() + 
+  theme(axis.text.x = element_blank())
+print(graf1)
 
 #gibanje kriminalitete v ljubljani v obdobju 2006-2015
 
