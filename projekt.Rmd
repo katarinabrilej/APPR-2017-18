@@ -21,8 +21,7 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah, primerjala bom tudi katere vrste kriminalitete so najpogostejše po regijah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni.
-Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
+V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni. Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
 povezave do virov:
 
@@ -43,11 +42,11 @@ povezave do virov:
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
-Uvozila sem podatke o številu brezposelnih in obsojenih na 1000 prebivalcev
+Uvozila sem podatke o številu brezposelnih in obsojenih 
 in o številu obsojenih glede na spol in kaznivo dejanje ter sankcijo
-v obliki CSV s statističnega urada ter podatke o številu umorjenih in zaprtih na 
-100 000 prebivalcev po državah sveta v obliki HTML
-z Wikipedije. Podatke imam v treh razpredelnicah v obliki *tidy data*.
+v obliki CSV s statističnega urada ter podatke o številu umorjenih in zaprtih 
+po državah sveta v obliki HTML z Wikipedije. Podatke imam v treh razpredelnicah 
+v obliki *tidy data*.
 
 1. `obsojeni_arhiv` - podatki o številu obsojenih glede na spol, kaznivo dejanje ter sankcijo, ki so je bili deležni
   - `leto` - spremenljivka: leto meritve (število),
