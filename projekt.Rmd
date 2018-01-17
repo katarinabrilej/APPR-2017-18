@@ -68,18 +68,24 @@ z Wikipedije. Podatke imam v treh razpredelnicah v obliki *tidy data*.
   - `umorjeni` - meritev: število umorjenih na 100 000 prebivalcev (število),
 
 
-```{r umorjeni, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Stopnja umorjenih po svetu'}
-
-ggplot(umorjeni.urejeno) + aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + 
-#  aes(x = Drzava, y = Stopnja_umorjenih, fill = Drzava) + geom_col() +
-  ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
-```
-
 ***
 
 # Analiza in vizualizacija podatkov
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
-#```
+```
+
+Spodnji graf prikazuje 10 držav z največjo stopnjo stopnjo umorjenih
+
+```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf1)
+```
+
+Spodnji graf prikazuje gibanje števila brezposelnih in obsojenih v Ljubljani med leti 2006 in 2015
+
+```{r graf2, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf2)
+
+```
 
 ***
