@@ -43,26 +43,30 @@ povezave do virov:
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+Uvozila sem podatke o številu brezposelnih in obsojenih na 1000 prebivalcev
+in o številu obsojenih glede na spol in kaznivo dejanje ter sankcijo
+v obliki CSV s statističnega urada ter podatke o številu umorjenih in zaprtih na 
+100 000 prebivalcev po državah sveta v obliki HTML
+z Wikipedije. Podatke imam v treh razpredelnicah v obliki *tidy data*.
 
 1. `obsojeni_arhiv` - podatki o številu obsojenih glede na spol, kaznivo dejanje ter sankcijo, ki so je bili deležni
   - `leto` - spremenljivka: leto meritve (število),
   - `sankcija` - spremenljivka: izrečena sankcija (neurejen faktor),
-  - `kaznivo_dejanje` - spremenljivka: vrsta kaznivega dejanja, ki ga je obsojeni storil (neurejen faktor),
+  - `kaznivo.dejanje` - spremenljivka: vrsta kaznivega dejanja, ki ga je obsojeni storil (neurejen faktor),
   - `spol` - spremenljivka: spol obsojenega (neurejen faktor)
   - `stevilo.obsojenih` - meritev: število obsojenih (število)
-
-2. `obcine` - podatki o občinah
+  
+2. `brezposelnost_in_obsojeni` - podatki o številu brezposelnih in obsojenih na 1000 prebivalcev po slovenskih     občinah
+  - `leto` - spremenljivka: leto meritve (število),
   - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
+  - `meritev` - spremenljivka: vrsta mertive, brezposelni ali obsojeni (neurejen faktor),
+  - `stopnja` - meritev: število brezposelnih/obsojenih na 1000 prebivalcev (število),
+
+3. `zaprti_in_umorjeni` - podatki o številu zaprtih in umorjenih po državah sveta
+  - `Drzava` - spremenljivka: ime države (neurejen faktor),
+  - `zaprti` - meritev: število zaprtih na 100 000 prebivalcev (število),
+  - `umorjeni` - meritev: število umorjenih na 100 000 prebivalcev (število),
+
 
 ```{r umorjeni, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Stopnja umorjenih po svetu'}
 
