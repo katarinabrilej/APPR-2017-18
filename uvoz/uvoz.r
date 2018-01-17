@@ -25,8 +25,8 @@ uvozi.brezposelnost2 <- function(){
   data <- data[-seq(1,23,2),]
   data <- data[-c(1),]
   data <- melt(data, id.vars = "X1", variable.name = "leto")
-  colnames(data) <- c("leto","obcina","stopnja")
-  data$stopnja <- parse_number(data$stopnja)
+  colnames(data) <- c("leto","obcina","brezposelni")
+  data$brezposelni <- parse_number(data$brezposelni)
   return(data)
 }
 
@@ -51,8 +51,8 @@ uvozi.obsojeni_po_obcinah2 <- function(){
   data <- data[-c(1),]
   data <- data[-c(11),]
   data <- melt(data, id.vars = "X1", variable.name = "obcina")
-  colnames(data) <- c("leto","obcina","stopnja")
-  data$stopnja <- parse_number(data$stopnja)
+  colnames(data) <- c("leto","obcina","obsojeni")
+  data$obsojeni <- parse_number(data$obsojeni)
   
   return(data)
 }
@@ -65,8 +65,15 @@ obsojeni_po_obcinah2 <- uvozi.obsojeni_po_obcinah2()
 #razlicni <- lvls != krim
 
 
-brezposelnost_in_obsojeni <- brezposelnost2
-brezposelnost_in_obsojeni$stevilo_obsojenih <- obsojeni_po_obcinah2$stevilo_obsojenih
+#brezposelnost_in_obsojeni <- brezposelnost2
+#brezposelnost_in_obsojeni$obsojeni <- obsojeni_po_obcinah2$obsojeni
+
+brezposelnost_in_obsojeni <- rbind(brezposelnost2 %>% transmute(leto, obcina,
+                                                                meritev = "brezposelni",
+                                                                stopnja = brezposelni),
+                                   obsojeni_po_obcinah2 %>% transmute(leto, obcina,
+                                                                      meritev = "obsojeni",
+                                                                      stopnja = obsojeni))
 
 obsojeni_po_kaznivem_dejanju_arhiv <- read_csv2("podatki/arhiv_obsojeni.csv", skip = 3,
                     locale = locale(encoding = "Windows-1250"),n_max = 19)
@@ -82,45 +89,45 @@ stolpci1 <- data.frame(sankcija = colnames(obsojeni_arhiv) %>% { gsub("X.*", NA,
                         leto = obsojeni_arhiv[2, ] %>% unlist() %>% parse_number(),
                         spol = obsojeni_arhiv[1, ] %>% unlist()) %>% fill(1:2 , 3) %>% apply(1, paste, collapse = "")
   
-  stolpci1[1] <- "kaznivo_dejanje"
+  stolpci1[1] <- "kaznivo.dejanje"
   colnames(obsojeni_arhiv) <- stolpci1
   
   obsojeni_arhiv <- melt(obsojeni_arhiv[-c(1, 2), ], value.name = "stevilo.obsojenih",
-                               id.vars = "kaznivo_dejanje", variable.name = "stolpec") %>%
+                               id.vars = "kaznivo.dejanje", variable.name = "stolpec") %>%
     mutate(stolpec = parse_character(stolpec)) %>% transmute(leto = stolpec %>% strapplyc("([0-9]+)") %>% unlist() %>% parse_number(),
-  sankcija = stolpec %>% strapplyc("^([^0-9]+)") %>% unlist() %>% factor(), kaznivo_dejanje,
+  sankcija = stolpec %>% strapplyc("^([^0-9]+)") %>% unlist() %>% factor(), kaznivo.dejanje,
   spol = stolpec %>% strapplyc("([^0-9]+)$") %>% unlist() %>% factor(), stevilo.obsojenih)
   
 
 #uvozimo še tabele iz wikipedie
 #uvoz tabele s podatki o stopnji zaprtih
- uvozi.stevilo_zaprtih <- function(){
+ uvozi.zaprti <- function(){
    link <- "https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate"
    stran <- html_session(link) %>% read_html()
-   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(dec = ",") %>% .[[2]] %>% 
+   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(dec = ",") %>% .[[1]] %>% 
      .[-c(1),]
-   colnames(tabela) <- c("Drzava", "Stopnja_zaprtih")
-   tabela$Stopnja_zaprtih <- parse_number(tabela$Stopnja_zaprtih)
+   colnames(tabela) <- c("Drzava", "zaprti")
+   tabela$zaprti <- parse_number(tabela$zaprti)
    return(tabela)
  }
 
-stevilo_zaprtih <- uvozi.stevilo_zaprtih()
+zaprti <- uvozi.zaprti()
 
 #uvoz tabele s podatki o stopnji umorov
-uvozi.stevilo_umorjenih <- function(){
+uvozi.umorjeni <- function(){
   link <- "https://en.wikipedia.org/wiki/List_of_countries_by_intentional_homicide_rate"
   stran <- html_session(link) %>% read_html()
   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(fill = TRUE, dec = ",") %>%
     .[[2]] %>% .[-c(1),] %>% .[c(1,2)]
-  colnames(tabela) <- c("Drzava", "Stopnja_umorjenih")
-  tabela$Stopnja_umorjenih <- parse_number(tabela$Stopnja_umorjenih)
+  colnames(tabela) <- c("Drzava", "umorjeni")
+  tabela$umorjeni <- parse_number(tabela$umorjeni)
   return(tabela)
 }
 
 # zadnji dve tabeli združimo v eno
-stevilo_umorjenih <- uvozi.stevilo_umorjenih()
-skupno <- inner_join(stevilo_zaprtih,stevilo_umorjenih, by = "Drzava")
-skupno$umorjeni_na_zaprtega <- (skupno$Stopnja_umorjenih / skupno$Stopnja_zaprtih) * 100
+umorjeni <- uvozi.umorjeni()
+zaprti_in_umorjeni <- inner_join(zaprti,umorjeni, by = "Drzava")
+#skupno$umorjeni_na_zaprtega <- (skupno$Stopnja_umorjenih / skupno$Stopnja_zaprtih) * 100
 
 
 
