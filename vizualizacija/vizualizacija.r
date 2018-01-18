@@ -14,10 +14,10 @@ graf2 <- ggplot(Ljubljana) + aes(x = leto, y = stopnja, colour = meritev) + geom
 
 
 # Uvozimo zemljevid.
-zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-                             "OB/OB", encoding = "Windows-1250")
-levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
-{ gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
-zemljevid <- pretvori.zemljevid(zemljevid)
+#zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
+#                             "OB/OB", encoding = "Windows-1250")
+#levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
+#{ gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
+#zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
+#zemljevid <- pretvori.zemljevid(zemljevid)
 
