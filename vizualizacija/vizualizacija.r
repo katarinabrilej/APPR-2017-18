@@ -14,10 +14,40 @@ graf2 <- ggplot(Ljubljana) + aes(x = leto, y = stopnja, colour = meritev) + geom
 
 
 # Uvozimo zemljevid.
-#zemljevid <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-#                             "OB/OB", encoding = "Windows-1250")
-#levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
-#{ gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-#zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
-#zemljevid <- pretvori.zemljevid(zemljevid)
+
+zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip",
+                             "ne_50m_admin_0_countries", 
+                             encoding = "UTF-8") %>%
+  pretvori.zemljevid()
+
+
+colnames(zemljevid)[11] <- 'drzava'
+
+zemljevid$drzava <- as.character(zemljevid$drzava)
+zemljevid$drzava[zemljevid$drzava == "Republic of Serbia"] <- "Serbia"
+zemljevid$drzava[zemljevid$drzava == "Cabo Verde"] <- "Cape Verde"
+zemljevid$drzava[zemljevid$drzava == "Czechia"] <- "Czech Republic"
+zemljevid$drzava[zemljevid$drzava == "The Bahamas"] <- "Bahamas"
+zemljevid$drzava[zemljevid$drzava == "United Republic of Tanzania"] <- "Tanzania"
+zemljevid$drzava[zemljevid$drzava == "United States of America"] <- "United States"
+
+
+umorjeni$Drzava[umorjeni$Drzava == "Micronesia, Fed. Sts."] <- "Federated States of Micronesia"
+
+
+zemljevid.umorjeni <- ggplot() +
+  geom_polygon(data = umorjeni %>% right_join(zemljevid, by = c("Drzava" = "drzava")),
+               aes(x = long, y = lat, group = group, fill = umorjeni), color = "black")+
+  xlab("") + ylab("") + ggtitle("Stopnja umorjenih po svetu")
+
+#print(zemljevid.umorjeni)
+  
+  
+zemljevid.zaprti <- ggplot() +
+    geom_polygon(data = zaprti %>% right_join(zemljevid, by = c("Drzava" = "drzava")),
+                 aes(x = long, y = lat, group = group, fill = zaprti), color = "black")+
+    xlab("") + ylab("") + ggtitle("Stopnja zaprtih po svetu")
+  
+#print(zemljevid.zaprti)
+  
 
