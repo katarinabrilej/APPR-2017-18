@@ -79,7 +79,7 @@ stolpci1 <- data.frame(sankcija = colnames(obsojeni_arhiv) %>% { gsub("X.*", NA,
 
 #uvozimo še tabele iz wikipedie
 #uvoz tabele s podatki o stopnji zaprtih
- uvozi.zaprti <- function(){
+  uvozi.zaprti <- function(){
    link <- "https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate"
    stran <- html_session(link) %>% read_html()
    tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(dec = ",") %>% .[[1]] %>% 
@@ -90,6 +90,43 @@ stolpci1 <- data.frame(sankcija = colnames(obsojeni_arhiv) %>% { gsub("X.*", NA,
  }
 
 zaprti <- uvozi.zaprti()
+zaprti$Drzava[zaprti$Drzava == "Timor-Leste (formerly East Timor)"] <- "Timor"
+zaprti$Drzava[zaprti$Drzava == "Myanmar (formerly Burma)"] <- "Myanmar"
+zaprti$Drzava[zaprti$Drzava == "Moldova (Republic of)"] <- "Moldova"
+zaprti$Drzava[zaprti$Drzava == "Macau (China)"] <- "Macao"
+zaprti$Drzava[zaprti$Drzava == "Micronesia, Federated States of"] <- "Federated States of Micronesia"
+zaprti$Drzava[zaprti$Drzava == "Kosovo/Kosova"] <- "Kosovo"
+zaprti$Drzava[zaprti$Drzava == "Ireland, Republic of"] <- "Ireland"
+zaprti$Drzava[zaprti$Drzava == "United Kingdom: England and Wales"] <- "United Kingdom"
+zaprti$Drzava[zaprti$Drzava == "United Kingdom: Northern Ireland"] <- "United Kingdom"
+zaprti$Drzava[zaprti$Drzava == "United Kingdom: Scotland"] <- "United Kingdom"
+zaprti$Drzava[zaprti$Drzava == "Russian Federation"] <- "Russia"
+zaprti$Drzava[zaprti$Drzava == "Democratic Republic of Congo (formerly Zaire)"] <- "Democratic Republic of the Congo"
+zaprti$Drzava[zaprti$Drzava == "Cote d'Ivoire"] <- "Ivory Coast"
+zaprti$Drzava[zaprti$Drzava == "Congo (Brazzaville)"] <- "Congo"
+zaprti$Drzava[zaprti$Drzava == "Cape Verde (Cabo Verde)"] <- "Cape Verde"
+zaprti$Drzava[zaprti$Drzava == "Bosnia and Herzegovina: Federation"] <- "Bosnia and Herzegovina"
+zaprti$Drzava[zaprti$Drzava == "Bosnia and Herzegovina: Republika Srpska"] <- "Bosnia and Herzegovina"
+zaprti$Drzava[zaprti$Drzava == "Samoa (formerly Western Samoa)"] <- "Samoa"
+zaprti$Drzava[zaprti$Drzava == "Republic of (South) Korea"] <- "South Korea"
+zaprti$Drzava[zaprti$Drzava == "Puerto Rico (U.S.)"] <- "Puerto Rico (US)"
+zaprti$Drzava[zaprti$Drzava == "Republic of Guinea"] <- "Guinea"
+zaprti$Drzava[zaprti$Drzava == "Cyprus (Republic of)"] <- "Cyprus"
+
+zaprti2 <- zaprti
+zaprti2 <- with(zaprti2,  zaprti2[order(Drzava) , ])
+rownames(zaprti2) <- NULL
+
+vsota <- sum(zaprti2[208:210,]$zaprti)
+zaprti2 <- zaprti2[-c(209:210),]
+zaprti2[208, 2] <- vsota
+
+vsota2 <- sum(zaprti2[26:27,]$zaprti)
+zaprti2 <- zaprti2[-c(27),]
+zaprti2[26, 2] <- vsota2
+
+rownames(zaprti2) <- NULL
+
 
 #uvoz tabele s podatki o stopnji umorov
 uvozi.umorjeni <- function(){
@@ -98,14 +135,22 @@ uvozi.umorjeni <- function(){
   tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>% html_table(fill = TRUE, dec = ",") %>%
     .[[2]] %>% .[-c(1),] %>% .[c(1,2)]
   colnames(tabela) <- c("Drzava", "umorjeni")
-  tabela$umorjeni <- parse_number(tabela$umorjeni)
   tabela <- with(tabela,  tabela[order(Drzava) , ])
+  tabela$umorjeni <- parse_number(tabela$umorjeni)
   return(tabela)
 }
 
 # zadnji dve tabeli združimo v eno
-umorjeni <- uvozi.umorjeni()
-zaprti_in_umorjeni <- inner_join(zaprti,umorjeni, by = "Drzava")
+umorjeni2 <- uvozi.umorjeni()
+
+umorjeni2$Drzava[umorjeni2$Drzava == "Micronesia, Fed. Sts."] <- "Federated States of Micronesia"
+umorjeni2$Drzava[umorjeni2$Drzava == "British Virgin Islands (UK)"] <- "Virgin Islands (United Kingdom)"
+umorjeni2$Drzava[umorjeni2$Drzava == "United States Virgin Islands (US)"] <- "Virgin Islands (U.S.)"
+
+umorjeni2<- with(umorjeni2,  umorjeni2[order(Drzava) , ])
+rownames(umorjeni2) <- NULL
+
+zaprti_in_umorjeni <- inner_join(zaprti2,umorjeni2, by = "Drzava")
 
 
 
