@@ -55,7 +55,7 @@ v obliki *tidy data*.
   - `spol` - spremenljivka: spol obsojenega (neurejen faktor)
   - `stevilo.obsojenih` - meritev: število obsojenih (število)
   
-2. `brezposelnost_in_obsojeni` - podatki o številu brezposelnih in obsojenih na 1000 prebivalcev po slovenskih     občinah
+2. `brezposelnost_in_obsojeni` - podatki o številu brezposelnih in obsojenih na 1000 prebivalcev po slovenskih občinah
   - `leto` - spremenljivka: leto meritve (število),
   - `obcina` - spremenljivka: ime občine (neurejen faktor),
   - `meritev` - spremenljivka: vrsta mertive, brezposelni ali obsojeni (neurejen faktor),
