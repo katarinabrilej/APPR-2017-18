@@ -93,20 +93,22 @@ zemljevid.zaprti <- ggplot() +
 #print(zemljevid.zaprti)
 
 #zemljevid občin
-obcine <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2.8/shp/SVN_adm_shp.zip", 
-                          "SVN_adm2",encoding = "Windows-1250") %>% pretvori.zemljevid()
+obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
+                          "OB/OB", encoding = "Windows-1250") %>% pretvori.zemljevid()
 
 
-obcine$NAME_2 <- as.character(obcine$NAME_2)
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Ankaran/Ancarano"] <- "Ankaran"
+
+obcine$OB_UIME <- as.character(obcine$OB_UIME)
 obsojeni_po_obcinah2$obcina <- as.character(obsojeni_po_obcinah2$obcina)
 zemljevid.obsojeni <- ggplot() +
-  geom_polygon(data = obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "NAME_2")),
+  geom_polygon(data = obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "OB_UIME")),
                aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
   xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
 
-#print(zemljevid.obsojeni)
+print(zemljevid.obsojeni)
 
-levels(obcine$NAME_2)
+levels(obcine$OB_UIME)
 unique(obsojeni_po_obcinah2$obcina) #podatki za 212 občin
 
 
