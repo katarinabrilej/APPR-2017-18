@@ -38,22 +38,40 @@ graf.zaprti2 <- ggplot(zaprti2[order(zaprti2$zaprti, decreasing=FALSE), ] %>% .[
 
 #print(graf.zaprti2)
 
+#povezava med številom umorjenih in zaprtih po svetu
 graf.umorjeni.zaprti <- ggplot(data = zaprti_in_umorjeni)+
   geom_point(aes(x = umorjeni, y = zaprti), stat = 'identity')+
-  #geom_text(aes(x = umorjeni, y = zaprti, label=Drzava),hjust=0, vjust=0)+
+  geom_text(data = zaprti_in_umorjeni %>% filter(zaprti > 400 | umorjeni > 30),size = 3,
+            aes(x = umorjeni, y = zaprti, label=Drzava),vjust = 2, nudge_y = 0.5, check_overlap = TRUE)+
   labs(title ="Primerjava stopnje zaprtih in stopnje umorjenih")+
   ylab("Stopnja zaprtih") + xlab("Stopnja umorjenih")
 
-#print(graf.umorjeni.zaprti)
+print(graf.umorjeni.zaprti)
 
-#gibanje kriminalitete v ljubljani v obdobju 2006-2015
+#gibanje kriminalitete in brezposelnosti v Ljubljani v obdobju 2006-2015
 
-Ljubljana <- brezposelnost_in_obsojeni[brezposelnost_in_obsojeni$obcina == "Ljubljana",]
-graf2 <- ggplot(Ljubljana) + aes(x = leto, y = stopnja, colour = meritev) + geom_line()
-#print(graf2)
+graf2 <- ggplot(brezposelnost_in_obsojeni %>% filter(obcina == "Ljubljana")) + 
+         aes(x = leto, y = stopnja, colour = meritev) + geom_line()+
+         labs(title = "gibanje kriminalitete in brezposelnosti v Ljubljani")
+print(graf2)
 
 #gibanje stevila brezposelnih in obsojenih v Sloveniji v obdobju 2006-2015
-graf.gibanje <- ggplot(brezposelnost_in_obsojeni)
+graf.gibanje <- ggplot(aggregate(stopnja ~ leto+meritev,brezposelnost_in_obsojeni,sum)) + 
+  aes(x = leto, y = stopnja, colour = meritev) + geom_line()+
+  labs(title = "gibanje kriminalitete in brezposelnosti v Sloveniji")
+print(graf.gibanje)
+
+
+#povezava med številom brezposelnih in obsojenih
+graf.obsojeni.brezposelni <- ggplot(data = brezposelnost_in_obsojeni2 %>% filter(leto == 2016))+
+  geom_point(aes(x = brezposelni , y = obsojeni), na.rm = TRUE, stat = 'identity')+
+  geom_smooth(aes(x = brezposelni , y = obsojeni), method = lm)+
+  geom_text(data = brezposelnost_in_obsojeni2 %>% filter(leto == 2016 & (obsojeni > 6 | brezposelni > 20)),
+            aes(x = brezposelni, y = obsojeni, label=obcina),vjust = 2, nudge_y = 0.5, check_overlap = TRUE,na.rm = TRUE)+
+  labs(title ="Primerjava stopnje brezposelnih in stopnje obsojenih v Sloveniji")+
+  ylab("Stopnja obsojenih") + xlab("Stopnja brezposelnih")
+print(graf.obsojeni.brezposelni)
+
 
 
 # Uvozimo zemljevid.
@@ -94,8 +112,7 @@ zemljevid.zaprti <- ggplot() +
 
 #zemljevid občin
 obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-                          "OB/OB", encoding = "Windows-1250") %>% pretvori.zemljevid()
-
+                          "OB/OB", encoding = "") %>% pretvori.zemljevid()
 
 obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Ankaran/Ancarano"] <- "Ankaran"
 

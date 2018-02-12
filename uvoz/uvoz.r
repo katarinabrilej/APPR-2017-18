@@ -37,8 +37,8 @@ uvozi.obsojeni_po_obcinah2 <- function(){
 obsojeni_po_obcinah2 <- uvozi.obsojeni_po_obcinah2()
 
 
-#brezposelnost_in_obsojeni <- brezposelnost2
-#brezposelnost_in_obsojeni$obsojeni <- obsojeni_po_obcinah2$obsojeni
+brezposelnost_in_obsojeni2 <- brezposelnost2
+brezposelnost_in_obsojeni2$obsojeni <- obsojeni_po_obcinah2$obsojeni
 
 brezposelnost_in_obsojeni <- rbind(brezposelnost2 %>% transmute(leto, obcina,
                                                                 meritev = "brezposelni",
