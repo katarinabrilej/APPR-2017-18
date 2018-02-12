@@ -92,12 +92,19 @@ zemljevid.zaprti <- ggplot() +
   
 print(zemljevid.zaprti)
 
-obcine <- uvozi.zemljevid("http://www.stat.si/doc/Geo/Obcine_LAU2.zip", 
-                             "Obcine",encoding = "Windows-1250") %>% pretvori.zemljevid()
+
+obcine2 <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2.8/shp/SVN_adm_shp.zip", 
+                          "SVN_adm2",encoding = "Windows-1250") %>% pretvori.zemljevid()
+
+
+obcine2$NAME_2 <- as.character(obcine2$NAME_2)
+obsojeni_po_obcinah2$obcina <- as.character(obsojeni_po_obcinah2$obcina)
 zemljevid.obsojeni <- ggplot() +
-  geom_polygon(data = obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "IME")),
+  geom_polygon(data = obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine2, by = c("obcina" = "NAME_2")),
                aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
-  xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih občinah")
+  xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
+print(zemljevid.obsojeni)
+
 
 
   
