@@ -76,6 +76,8 @@ stolpci1 <- data.frame(sankcija = colnames(obsojeni_arhiv) %>% { gsub("X.*", NA,
   sankcija = stolpec %>% strapplyc("^([^0-9]+)") %>% unlist() %>% factor(), kaznivo.dejanje,
   spol = stolpec %>% strapplyc("([^0-9]+)$") %>% unlist() %>% factor(), stevilo.obsojenih)
   
+  obsojeni_arhiv$stevilo.obsojenih <- parse_number(obsojeni_arhiv$stevilo.obsojenih)
+  
 
 #uvozimo še tabele iz wikipedie
 #uvoz tabele s podatki o stopnji zaprtih

@@ -72,7 +72,42 @@ graf.obsojeni.brezposelni <- ggplot(data = brezposelnost_in_obsojeni2 %>% filter
   ylab("Stopnja obsojenih") + xlab("Stopnja brezposelnih")
 print(graf.obsojeni.brezposelni)
 
+#gibanje števila kaznivih dejanj 
+graf.kazniva <- ggplot(data = aggregate(stevilo.obsojenih ~ kaznivo.dejanje+leto,obsojeni_arhiv,sum) %>% 
+                         filter(leto > 2008))+
+  aes(x = leto, y = stevilo.obsojenih, colour = kaznivo.dejanje) + geom_line()+
+  labs(title = "gibanje kaznivih dejanj v Sloveniji")
+print(graf.kazniva)
 
+#brez kaznivih dejanj proti premoženju
+graf.kazniva2 <- ggplot(data = aggregate(stevilo.obsojenih ~ kaznivo.dejanje+leto,obsojeni_arhiv,sum) %>% 
+                         filter(leto > 2008) %>% filter (kaznivo.dejanje != "KAZNIVA DEJANJA ZOPER PREMOŽENJE"))+
+  aes(x = leto, y = stevilo.obsojenih, colour = kaznivo.dejanje) + geom_line()+
+  labs(title = "gibanje kaznivih dejanj v Sloveniji")
+print(graf.kazniva2)
+
+#tortni diagram deležev sankcij
+kazni <- aggregate(stevilo.obsojenih ~ sankcija,obsojeni_arhiv,sum)                      
+torta.kazni <- pie(kazni$stevilo.obsojenih, labels = kazni$sankcija, main = "Delez kazni")
+
+#graf sankcij glede na spol
+  
+  graf.kazni <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija+leto+spol,obsojeni_arhiv,sum) %>% filter (leto == 2011),
+                       aes(x=sankcija, y=stevilo.obsojenih, fill = spol)) +
+  geom_bar(position="stack", stat="identity", colour="black")+
+  labs(title ="Sankcije")+
+  ylab("stevilo obsojenih")+xlab("Sankcija")
+  print(graf.kazni)
+  
+#graf obsojenih glede na spol skozi leta
+  graf.spol <- ggplot(data = aggregate(stevilo.obsojenih ~ spol+leto,obsojeni_arhiv,sum) %>% filter (leto > 2008),
+                       aes(x=leto, y=stevilo.obsojenih, fill = spol)) +
+    geom_bar(position="stack", stat="identity", colour="black")+
+    labs(title ="stevilo obsojenih glede na spol")+
+    ylab("stevilo obsojenih")+xlab("leto")
+  print(graf.spol)
+
+skupno <- aggregate(stevilo.obsojenih ~ spol+leto,obsojeni_arhiv,sum)
 
 # Uvozimo zemljevid.
 #zemljevid sveta
