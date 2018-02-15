@@ -1,5 +1,5 @@
 ---
-title: "Poročilo pri predmetu Analiza podatkov s programom R"
+title: "Analiza kriminalitete"
 author: "Katarina Brilej"
 output:
   html_document: default
@@ -19,11 +19,10 @@ output:
 source("lib/libraries.r")
 ```
 
-# Izbira teme
 
 V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni. Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
-povezave do virov:
+Podatki so iz Statističnega urada Sloveniji in wikipedie:
 
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
 * http://pxweb.stat.si/pxweb/Dialog/Saveshow.asp
@@ -42,11 +41,8 @@ povezave do virov:
 source("uvoz/uvoz.r")
 ```
 
-Uvozila sem podatke o številu brezposelnih in obsojenih 
-in o številu obsojenih glede na spol in kaznivo dejanje ter sankcijo
-v obliki CSV s statističnega urada ter podatke o številu umorjenih in zaprtih 
-po državah sveta v obliki HTML z Wikipedije. Podatke imam v treh razpredelnicah 
-v obliki *tidy data*.
+Uvozila sem podatke o brezposelnih in obsojenih v Sloveniji obliki CSV s statističnega urada ter podatke o umorjenih in zaprtih 
+po državah sveta v obliki HTML z Wikipedije. Podatke imam v treh razpredelnicah v obliki *tidy data*.
 
 1. `obsojeni_arhiv` - podatki o številu obsojenih glede na spol, kaznivo dejanje ter sankcijo, ki so je bili deležni
   - `leto` - spremenljivka: leto meritve (število),
@@ -55,36 +51,42 @@ v obliki *tidy data*.
   - `spol` - spremenljivka: spol obsojenega (neurejen faktor)
   - `stevilo.obsojenih` - meritev: število obsojenih (število)
   
+```{r obsojeni_arhiv, echo=FALSE, message=FALSE}
+kable(head(obsojeni_arhiv), align="l")
+```
+  
 2. `brezposelnost_in_obsojeni` - podatki o številu brezposelnih in obsojenih na 1000 prebivalcev po slovenskih občinah
   - `leto` - spremenljivka: leto meritve (število),
   - `obcina` - spremenljivka: ime občine (neurejen faktor),
   - `meritev` - spremenljivka: vrsta mertive, brezposelni ali obsojeni (neurejen faktor),
-  - `stopnja` - meritev: število brezposelnih/obsojenih na 1000 prebivalcev (število),
+  - `stopnja` - meritev: število brezposelnih/obsojenih na 1000 prebivalcev (število)
+  
+```{r brezposelnost_in_obsojeni, echo=FALSE, message=FALSE}
+kable(head(brezposelnost_in_obsojeni), align="l")
+```
 
 3. `zaprti_in_umorjeni` - podatki o številu zaprtih in umorjenih po državah sveta
   - `Drzava` - spremenljivka: ime države (neurejen faktor),
   - `zaprti` - meritev: število zaprtih na 100 000 prebivalcev (število),
-  - `umorjeni` - meritev: število umorjenih na 100 000 prebivalcev (število),
+  - `umorjeni` - meritev: število umorjenih na 100 000 prebivalcev (število)
+  
+```{r zaprti_in_umorjeni, echo=FALSE, message=FALSE}
+kable(head(zaprti_in_umorjeni))
+```
 
 
 ***
 
-# Analiza in vizualizacija podatkov
+ Analiza in vizualizacija podatkov
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
 source("vizualizacija/vizualizacija.r")
 ```
 
 Spodnji graf prikazuje 10 držav z največjo stopnjo umorjenih
 
-```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
-print(graf1)
+```{r graf.umorjeni, echo=FALSE, message=FALSE, fig.align='center'}
+graf.umorjeni
 ```
 
-Spodnji graf prikazuje gibanje števila brezposelnih in obsojenih v Ljubljani med leti 2006 in 2015
-
-```{r graf2, echo=FALSE, message=FALSE, fig.align='center'}
-print(graf2)
-
-```
 
 ***
