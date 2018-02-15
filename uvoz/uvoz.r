@@ -5,7 +5,7 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 # Funkcija, ki uvozi podatke iz datoteke druzine.csv
 
-
+#tabela s podatki o stopnji brezposelnosti v slovenskih občinah med leti 2006 in 2016
 uvozi.brezposelnost2 <- function(){
   data <- read_csv2("podatki/brezposelnost2.csv", skip = 3,
                     locale = locale(encoding = "Windows-1250"), n_max = 25, na=c("-")) %>% fill(X1) 
@@ -21,8 +21,7 @@ uvozi.brezposelnost2 <- function(){
 
 brezposelnost2 <- uvozi.brezposelnost2()
 
-
-
+#tabela s podatki o stopnji obsojenih v slovenskih občinah med leti 2006 in 2016
 uvozi.obsojeni_po_obcinah2 <- function(){
   data <- read_csv2("podatki/obsojeni_po_obcinah2.csv", skip = 2,
                     locale = locale(encoding = "Windows-1250"), n_max = 12, na=c("-", "z")) 
@@ -36,7 +35,7 @@ uvozi.obsojeni_po_obcinah2 <- function(){
 
 obsojeni_po_obcinah2 <- uvozi.obsojeni_po_obcinah2()
 
-
+#združeni tabeli o brezposelnih in obsojenih
 brezposelnost_in_obsojeni2 <- brezposelnost2
 brezposelnost_in_obsojeni2$obsojeni <- obsojeni_po_obcinah2$obsojeni
 
@@ -47,20 +46,17 @@ brezposelnost_in_obsojeni <- rbind(brezposelnost2 %>% transmute(leto, obcina,
                                                                       meritev = "obsojeni",
                                                                       stopnja = obsojeni))
 
-obsojeni_po_kaznivem_dejanju_arhiv <- read_csv2("podatki/arhiv_obsojeni.csv", skip = 3,
+#podatki o obsojenih glede na spol, sankcijo in kaznivo dejanje
+obsojeni_arhiv <- read_csv2("podatki/arhiv_obsojeni.csv", skip = 3,
                     locale = locale(encoding = "Windows-1250"),n_max = 18)
   
-  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[2] <- c('zaporna kazen')
-  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[18] <- c('denarna kazen')
-  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[34] <- c('sodni opomin')
-  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[50] <- c('kazen opuscena')
-  colnames(obsojeni_po_kaznivem_dejanju_arhiv)[66] <- c('varnostni ukrep brez izreka kazni')
+  colnames(obsojeni_arhiv)[2] <- c('zaporna kazen')
+  colnames(obsojeni_arhiv)[18] <- c('denarna kazen')
+  colnames(obsojeni_arhiv)[34] <- c('sodni opomin')
+  colnames(obsojeni_arhiv)[50] <- c('kazen opuscena')
+  colnames(obsojeni_arhiv)[66] <- c('varnostni ukrep brez izreka kazni')
 
 
-  
-
-  
-obsojeni_arhiv <- obsojeni_po_kaznivem_dejanju_arhiv 
 obsojeni_arhiv$X1 <- sub(".*? (.+)", "\\1", obsojeni_arhiv$X1)
 
 stolpci1 <- data.frame(sankcija = colnames(obsojeni_arhiv) %>% { gsub("X.*", NA, .) },
@@ -80,7 +76,7 @@ stolpci1 <- data.frame(sankcija = colnames(obsojeni_arhiv) %>% { gsub("X.*", NA,
   
 
 #uvozimo še tabele iz wikipedie
-#uvoz tabele s podatki o stopnji zaprtih
+#tabela s podatki o stopnji umorjenih po svetu
   uvozi.zaprti <- function(){
    link <- "https://en.wikipedia.org/wiki/List_of_countries_by_incarceration_rate"
    stran <- html_session(link) %>% read_html()
@@ -142,9 +138,7 @@ uvozi.umorjeni <- function(){
   return(tabela)
 }
 
-# zadnji dve tabeli združimo v eno
 umorjeni2 <- uvozi.umorjeni()
-
 umorjeni2$Drzava[umorjeni2$Drzava == "Micronesia, Fed. Sts."] <- "Federated States of Micronesia"
 umorjeni2$Drzava[umorjeni2$Drzava == "British Virgin Islands (UK)"] <- "Virgin Islands (United Kingdom)"
 umorjeni2$Drzava[umorjeni2$Drzava == "United States Virgin Islands (US)"] <- "Virgin Islands (U.S.)"
@@ -152,6 +146,7 @@ umorjeni2$Drzava[umorjeni2$Drzava == "United States Virgin Islands (US)"] <- "Vi
 umorjeni2<- with(umorjeni2,  umorjeni2[order(Drzava) , ])
 rownames(umorjeni2) <- NULL
 
+# zadnji dve tabeli združimo v eno
 zaprti_in_umorjeni <- inner_join(zaprti2,umorjeni2, by = "Drzava")
 
 
