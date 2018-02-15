@@ -132,8 +132,7 @@ graf.delez.sankcij <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija,obsoj
   
 # Uvozimo zemljevid zemljevid sveta
 zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip",
-                             "ne_50m_admin_0_countries", 
-                             encoding = "UTF-8") %>% pretvori.zemljevid()
+                             "ne_50m_admin_0_countries") %>% pretvori.zemljevid()
 
 colnames(zemljevid)[11] <- 'drzava'
 
@@ -153,17 +152,19 @@ zemljevid.umorjeni <- ggplot() +
                aes(x = long, y = lat, group = group, fill = umorjeni), alpha = 0.8, color = "black")+
   scale_fill_gradient2(low = "yellow", mid = "red",
                        high = "brown", midpoint = 75) + 
-  xlab("") + ylab("") + ggtitle("Stopnja umorjenih po svetu")
+  xlab("") + ylab("") + ggtitle("Stopnja umorjenih po svetu")+
+  guides(fill=guide_legend(title="Stopnja"))
 
-print(zemljevid.umorjeni)
+#print(zemljevid.umorjeni)
 
   
 zemljevid.zaprti <- ggplot() +
     geom_polygon(data = zaprti2 %>% right_join(zemljevid, by = c("Drzava" = "drzava")),
                  aes(x = long, y = lat, group = group, fill = zaprti), color = "black")+
-    xlab("") + ylab("") + ggtitle("Stopnja zaprtih po svetu")
+    xlab("") + ylab("") + ggtitle("Stopnja zaprtih po svetu") +
+    guides(fill=guide_legend(title="Stopnja"))
   
-print(zemljevid.zaprti)
+#print(zemljevid.zaprti)
 
 #uvozimo zemljevid slovenskih občin
 obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
@@ -174,13 +175,15 @@ obcine$OB_UIME <- as.character(obcine$OB_UIME)
 zemljevid.obsojeni <- ggplot() +
   geom_polygon(data = left_join(obcine, obsojeni_po_obcinah2 %>% filter(leto == "2016"), by = c("OB_UIME" = "obcina")),
                aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
-  scale_fill_gradient2(low = "yellow", mid = "red",
-                       high = "brown", midpoint = 6) + 
+  scale_fill_gradient2(low = "blanchedalmond", mid = "lightpink3",
+                       high = "violetred", midpoint = 6) + 
   xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
 
-print(zemljevid.obsojeni)
+#obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "OB_UIME"))
 
-ob <- unique(obcine$OB_UIME)
-OB <- unique(obsojeni_po_obcinah2$obcina) #podatki za 212 občin
+#print(zemljevid.obsojeni)
 
+#ob <- unique(obcine$OB_UIME)
+#OB <- unique(obsojeni_po_obcinah2$obcina) #podatki za 212 občin
 
+                    
