@@ -29,11 +29,44 @@ uvozi.obsojeni_po_obcinah2 <- function(){
   colnames(data)[1] <- "leto"
   data <- melt(data, id.vars = "leto", variable.name = "obcina", value.name = "obsojeni")
   data$obsojeni <- parse_number(data$obsojeni)
+  data$obcina <- as.character(data$obcina)
   
   return(data)
 }
 
 obsojeni_po_obcinah2 <- uvozi.obsojeni_po_obcinah2()
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Ankaran/Ancarano"] <- "Ankaran"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Izola/Isola"] <- "Izola"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Koper/Capodistria"] <- "Koper"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Dobrova - Polhov Gradec"] <- "Dobrova-Polhov Gradec"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Dobrovnik/Dobronak"] <- "Dobrovnik"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Gorenja vas - Poljane"] <- "Gorenja vas-Poljane"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Lendava/Lendva"] <- "Lendava"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Hrpelje - Kozina"] <- "Hrpelje-Kozina"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Log - Dragomer"] <- "Log-Dragomer"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Miren - Kostanjevica"] <- "Miren-Kostanjevica"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Mokronog - Trebelno"] <- "Mokronog-Trebelno"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Sveta Trojica v Slov. goricah"] <- "Sveta Trojica v Slovenskih goricah"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Sveti Jurij v Slov. goricah"] <- "Sveti Jurij v Slovenskih goricah"
+
+hodos <- "Hodoš/Hodos"
+Encoding(hodos) <- "UTF-8"
+sempeter <- "Šempeter - Vrtojba"
+Encoding(sempeter) <- "UTF-8"
+race <- "Rače - Fram"
+Encoding(race) <- "UTF-8"
+slivnica <- "Hoče - Slivnica"
+Encoding(slivnica) <- "UTF-8"
+rence <- "Renče - Vogrsko"
+Encoding(rence) <- "UTF-8"
+
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == hodos] <- "Hodoš"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == sempeter] <- "Šempeter"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == race] <- "Rače-Fram"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == slivnica] <- "Hoče-Slivnica"
+obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == rence] <- "Renče-Vogrsko"
+
+
 
 #združeni tabeli o brezposelnih in obsojenih
 brezposelnost_in_obsojeni2 <- brezposelnost2

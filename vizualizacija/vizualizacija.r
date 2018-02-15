@@ -165,24 +165,22 @@ zemljevid.zaprti <- ggplot() +
   
 print(zemljevid.zaprti)
 
-#zemljevid občin
-#obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
-#                          "OB/OB", encoding = "Windows-1250") %>% pretvori.zemljevid()
+#uvozimo zemljevid slovenskih občin
+obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
+                          "OB/OB", encoding = "Windows-1250") %>% pretvori.zemljevid()
+obcine$OB_UIME <- as.character(obcine$OB_UIME)
 
-#obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == "Ankaran/Ancarano"] <- "Ankaran"
+#zemljevid stopnje obsojenih
+zemljevid.obsojeni <- ggplot() +
+  geom_polygon(data = left_join(obcine, obsojeni_po_obcinah2 %>% filter(leto == "2016"), by = c("OB_UIME" = "obcina")),
+               aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
+  scale_fill_gradient2(low = "yellow", mid = "red",
+                       high = "brown", midpoint = 6) + 
+  xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
 
-#obcine$OB_UIME <- as.character(obcine$OB_UIME)
-#obsojeni_po_obcinah2$obcina <- as.character(obsojeni_po_obcinah2$obcina)
-#zemljevid.obsojeni <- ggplot() +
-#  geom_polygon(data = obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "OB_UIME")),
-#               aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
-#  xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
+print(zemljevid.obsojeni)
 
-#print(zemljevid.obsojeni)
+ob <- unique(obcine$OB_UIME)
+OB <- unique(obsojeni_po_obcinah2$obcina) #podatki za 212 občin
 
-#levels(obcine$OB_UIME)
-#unique(obsojeni_po_obcinah2$obcina) #podatki za 212 občin
-
-
-  
 
