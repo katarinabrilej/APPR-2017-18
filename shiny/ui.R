@@ -7,5 +7,10 @@ fluidPage(
            sidebarPanel(
              selectInput("obcina1", label = "Izberi obcino", 
                          choices = unique(brezposelnost_in_obsojeni$obcina))),
-           mainPanel(plotOutput("grafi1")))
+           mainPanel(plotOutput("graf1"))),
+  tabPanel("Zemljevid",
+           sidebarPanel(
+             selectInput("leto1", label = "Izberi leto", 
+                         choices = unique(obsojeni_po_obcinah2$leto))),
+           mainPanel(plotOutput("zemljevid1")))
 )

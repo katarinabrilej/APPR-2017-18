@@ -22,7 +22,7 @@ source("lib/libraries.r")
 
 V svojem projektu bom analizirala povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah. Prav tako bom analizirala različne vrste kriminalitete skozi leta in jih primerjala s spolom storilcev in sankcijo, ki so je bili deležni. Na koncu pa bom slovenske podatke o številu umorjenih in zaprtih primerjala s svetovnimi. 
 
-Podatki so iz Statističnega urada Sloveniji in wikipedie:
+Podatki so iz Statističnega urada Slovenije in wikipedie:
 
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
 * http://pxweb.stat.si/pxweb/Dialog/Saveshow.asp
@@ -84,9 +84,10 @@ source("vizualizacija/vizualizacija.r")
 
 Spodnji graf prikazuje 10 držav z največjo stopnjo umorjenih
 
-```{r graf.umorjeni, echo=FALSE, message=FALSE, fig.align='center'}
-graf.umorjeni
+```{r graf.umorjeni.max, echo=FALSE, message=FALSE, fig.align='center'}
+graf.umorjeni.max
 ```
+
 
 
 ***
