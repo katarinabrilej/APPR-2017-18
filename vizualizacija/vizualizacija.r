@@ -80,7 +80,7 @@ Encoding(kazniva.dejanja) <- "UTF-8"
 graf.kazniva <- ggplot(data = aggregate(stevilo.obsojenih ~ kaznivo.dejanje+leto,obsojeni_arhiv,sum) %>% 
                          filter(leto > 2008) %>% filter (!kaznivo.dejanje %in% kazniva.dejanja))+
   aes(x = leto, y = stevilo.obsojenih, colour = kaznivo.dejanje) + geom_line()+
-  labs(title = "Gibanje kaznivih dejanj v Sloveniji") + 
+  ggtitle("Gibanje kaznivih dejanj v Sloveniji") + 
   ylab("stevilo obsojenih")
 
 #print(graf.kazniva)
@@ -94,33 +94,42 @@ Encoding(kazniva.skupaj) <- "UTF-8"
 graf.kazniva2 <- ggplot(data = aggregate(stevilo.obsojenih ~ kaznivo.dejanje+leto,obsojeni_arhiv,sum) %>% 
                          filter(leto > 2008) %>% filter (!kaznivo.dejanje %in% kazniva.skupaj))+
   aes(x = leto, y = stevilo.obsojenih, colour = kaznivo.dejanje) + geom_line()+
-  labs(title = "Gibanje kaznivih dejanj v Sloveniji") + 
+  ggtitle("Gibanje kaznivih dejanj v Sloveniji") + 
   ylab("stevilo obsojenih")
 
 #print(graf.kazniva2)
 
-#tortni diagram deležev sankcij
-kazni <- aggregate(stevilo.obsojenih ~ sankcija,obsojeni_arhiv,sum)                      
-torta.kazni <- pie(kazni$stevilo.obsojenih, labels = kazni$sankcija, main = "Delez kazni")
-
 #graf sankcij glede na spol
-  
-  graf.kazni <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija+leto+spol,obsojeni_arhiv,sum) %>% filter (leto == 2011),
+graf.sankcije <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija+leto+spol,obsojeni_arhiv,sum) %>% filter (leto == 2011),
                        aes(x=sankcija, y=stevilo.obsojenih, fill = spol)) +
   geom_bar(position="stack", stat="identity", colour="black")+
-  labs(title ="Sankcije")+
-  ylab("stevilo obsojenih")+xlab("Sankcija")
-  print(graf.kazni)
+  labs(title ="Stevilo obsojenih glede na sankcijo in spol")+
+  ylab("Stevilo obsojenih")+xlab("Sankcija")
+
+#print(graf.sankcije)
   
 #graf obsojenih glede na spol skozi leta
-  graf.spol <- ggplot(data = aggregate(stevilo.obsojenih ~ spol+leto,obsojeni_arhiv,sum) %>% filter (leto > 2008),
+graf.spol <- ggplot(data = aggregate(stevilo.obsojenih ~ spol+leto,obsojeni_arhiv,sum) %>% filter (leto > 2008),
                        aes(x=leto, y=stevilo.obsojenih, fill = spol)) +
     geom_bar(position="stack", stat="identity", colour="black")+
-    labs(title ="stevilo obsojenih glede na spol")+
-    ylab("stevilo obsojenih")+xlab("leto")
-  print(graf.spol)
+    labs(title ="Stevilo obsojenih glede na spol")+
+    ylab("Stevilo obsojenih")+xlab("Leto")
 
+#print(graf.spol)
+  
+#tortni diagram deležev sankcij
+#kazni <- aggregate(stevilo.obsojenih ~ sankcija,obsojeni_arhiv,sum)                      
+#torta.kazni <- pie(kazni$stevilo.obsojenih, labels = kazni$sankcija, main = "Povprecen delez sankcij")
 
+graf.delez.sankcij <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija,obsojeni_arhiv,sum),
+                        aes(x="", y=stevilo.obsojenih, fill = sankcija)) +
+  geom_bar(width = 1, stat="identity", colour="black") + coord_polar("y", start=0)+
+  xlab("") + ylab("") + ggtitle("Povprecen delez sankcij") + theme(axis.text.x=element_blank(), panel.grid=element_blank())
+#theme_minimal()
+
+#print(graf.delez.sankcij)
+
+  
 # Uvozimo zemljevid zemljevid sveta
 zemljevid <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/50m/cultural/ne_50m_admin_0_countries.zip",
                              "ne_50m_admin_0_countries", 
