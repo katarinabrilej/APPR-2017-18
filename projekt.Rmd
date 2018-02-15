@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-#runtime: shiny
+runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning  = FALSE}
@@ -84,10 +84,42 @@ source("vizualizacija/vizualizacija.r")
 
 Spodnji graf prikazuje 10 držav z največjo stopnjo umorjenih
 
+```{r graf.gibanje, echo=FALSE, message=FALSE, fig.align='center'}
+graf.gibanje
+```
+
+```{r graf.obsojeni.brezposelni, echo=FALSE, message=FALSE, fig.align='center'}
+graf.obsojeni.brezposelni
+```
+
+```{r graf.kazniva, echo=FALSE, message=FALSE, fig.align='center'}
+graf.kazniva
+```
+
+```{r graf.spol, echo=FALSE, message=FALSE, fig.align='center'}
+graf.spol
+```
+
+```{r graf.delez.sankcij, echo=FALSE, message=FALSE, fig.align='center'}
+graf.delez.sankcij
+```
+
 ```{r graf.umorjeni.max, echo=FALSE, message=FALSE, fig.align='center'}
 graf.umorjeni.max
 ```
 
+```{r graf.umorjeni.zaprti, echo=FALSE, message=FALSE, fig.align='center'}
+graf.umorjeni.zaprti
+```
+```{r zemljevid.umorjeni, echo=FALSE, message=FALSE, fig.align='center'}
+zemljevid.umorjeni
+```
 
+```{r zemljevid.zaprti, echo=FALSE, message=FALSE, fig.align='center'}
+zemljevid.zaprti
+```
 
 ***
+```{r shiny, echo = FALSE}
+shinyAppDir("shiny", options=list(width="100%", height=600))
+```

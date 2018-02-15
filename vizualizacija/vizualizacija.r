@@ -186,4 +186,3 @@ zemljevid.obsojeni <- ggplot() +
 #ob <- unique(obcine$OB_UIME)
 #OB <- unique(obsojeni_po_obcinah2$obcina) #podatki za 212 občin
 
-                    
