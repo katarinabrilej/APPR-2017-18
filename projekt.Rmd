@@ -24,7 +24,12 @@ V svojem projektu bom analizirala različne vrste kriminalitete skozi leta v Slo
 Poskušala bom tudi najti povezavo med stopnjo brezposelnosti in kriminaliteto v slovenskih občinah. Na koncu pa bom analizirala še svetovne podatki o stopnji 
 umorjenih in zaprtih. 
 
-Podatki so iz statističnega urada Slovenije in wikipedie:
+
+![](https://www.lexisnexis.com/legalnewsroom/cfs-file.ashx/__key/telligent-evolution-components-attachments/13-52-00-00-00-00-01-88/Prison-Guard-and-Inmate-Cartoon.jpg)
+
+
+
+Podatki so s Statističnega urada Slovenije in Wikipedije:
 
 * http://pxweb.stat.si/pxweb/Database/Dem_soc/13_kriminaliteta/01_statistika_toz_sodisc/10_13722_obsojene_kazalniki/10_13722_obsojene_kazalniki.asp
 * http://pxweb.stat.si/pxweb/Dialog/Saveshow.asp
@@ -45,7 +50,7 @@ Podatki so iz statističnega urada Slovenije in wikipedie:
 source("uvoz/uvoz.r")
 ```
 
-Uvozila sem podatke o brezposelnih in obsojenih v Sloveniji obliki CSV s statističnega urada ter podatke o umorjenih in zaprtih 
+Uvozila sem podatke o brezposelnih in obsojenih v Sloveniji v obliki CSV s Statističnega urada ter podatke o umorjenih in zaprtih 
 po državah sveta v obliki HTML z Wikipedije. Podatke imam v treh razpredelnicah v obliki *tidy data*.
 
 1. `obsojeni` - podatki o številu obsojenih glede na spol, kaznivo dejanje ter sankcijo, ki so je bili deležni
@@ -59,7 +64,7 @@ po državah sveta v obliki HTML z Wikipedije. Podatke imam v treh razpredelnicah
 kable(head(obsojeni_arhiv), align="l")
 ```
   
-2. `brezposelnost_in_obsojeni` - podatki o številu brezposelnih in obsojenih na 1000 prebivalcev po slovenskih občinah
+2. `brezposelnost in obsojeni` - podatki o številu brezposelnih in obsojenih na 1000 prebivalcev po slovenskih občinah
   - `leto` - spremenljivka: leto meritve (število),
   - `obcina` - spremenljivka: ime občine (neurejen faktor),
   - `meritev` - spremenljivka: vrsta mertive, brezposelni ali obsojeni (neurejen faktor),
@@ -74,7 +79,7 @@ kable(head(brezposelnost_in_obsojeni), align="l")
   - `zaprti` - meritev: število zaprtih na 100 000 prebivalcev (število),
   - `umorjeni` - meritev: število umorjenih na 100 000 prebivalcev (število)
   
-```{r zaprti_in_umorjeni, echo=FALSE, message=FALSE}
+```{r zaprti in umorjeni, echo=FALSE, message=FALSE}
 kable(head(zaprti_in_umorjeni))
 ```
 
@@ -88,7 +93,7 @@ source("vizualizacija/vizualizacija.r")
 
 Pri analizi sem se najprej osredotočila na gibanje števila obsojenih v preteklih letih ter kakšen delež je moških in žensk. 
 Iz spodnjega grafa lahko opazimo, da se je v obdobju med leti 2009 in 2013 število obsojenih prav vsako leto povečalo. Številka
-pa je bila leta 2013 skoraj desetkrat večja kot v letu 2009. Prav tako lahko po pričakovanjih opazimo da je delež moških obsojencev
+pa je bila leta 2013 skoraj desetkrat večja kot v letu 2009. Prav tako lahko po pričakovanjih opazimo, da je delež moških obsojencev
 veliko večji.
 
 ```{r graf.spol, echo=FALSE, message=FALSE, fig.align='center'}
@@ -98,14 +103,14 @@ graf.spol
 V prejšnjem grafu smo lahko opazili, da se je število kriminalni dejanj močno povečalo, zdaj pa me je zanimalo katere vrste dejanja
 so imela največji vpliv. Spodnji graf prikazuje gibanje kaznivih dejanj med leti 2009 in 2013 (kot so opredeljena v kazenskem zakoniku, 
 zaradi preglednosti pa sem odstranila nekaj dejanj z najmanjšim številom obsojenih). Opazimo lahko da najbolj izstopajo kazniva
-dejanja zoper premoženje, mednje med drugim sodijo tatvina, rop, goljufija, oderuštvo, prikrivanje. Tudi vsa ostalo z izjemo kaznivih
-dejanj zoper človekove pravice in svoboščine so bila v vzponu.
+dejanja zoper premoženje, mednje med drugim sodijo tatvina, rop, goljufija, oderuštvo, prikrivanje. Tudi vsa ostalo, z izjemo kaznivih
+dejanj zoper človekove pravice in svoboščine, so bila v vzponu.
 
 ```{r graf.kazniva, echo=FALSE, message=FALSE, fig.align='center'}
 graf.kazniva
 ```
 
-V naslednjem grafu lahko vidimo, da največji delež sankcij predstavlja zaporna kazen, kar me je zelo presenetilo. Pričakovala bi namreč
+V naslednjem grafu lahko vidimo, da največji delež sankcij predstavlja zaporna kazen, kar me je zelo presenetilo. Pričakovala bi namreč,
 da je delež denarne kazni precej večji.
 
 ```{r graf.delez.sankcij, echo=FALSE, message=FALSE, fig.align='center'}
@@ -115,43 +120,43 @@ graf.delez.sankcij
 V drugem delu analize se bom osredotočila na podatke o stopnji brezposelnosti in obsojenih v slovenskih občinah ter poskušala najti
 povezavo. V spodnjem grafu je prikazono gibanje obeh stopenj, povprečno za celotno Slovenijo. Med leti 2006 in 2009 sta se stopnji gibali ravno obratno,
 brezposelnost je padala, obsojenost pa naraščala. Od leta 2011 naprej pa sta se gibali v podobni smeri. V času gospodarske krize je stopnja brezposelnosti
-močno narasla, temu pa je kmali sledila tudi stopnja obsojenosti. V zadnjih letih, ko se gospodarstvo izboljšuje pa smo lahko priča tako nižji brezposelnosti
+močno narasla, temu pa je kmali sledila tudi stopnja obsojenosti. V zadnjih letih, ko se gospodarstvo izboljšuje, pa smo lahko priča tako nižji brezposelnosti
 kot manjšemu številu obsojenih. Tako lahko iz grafa sklepamo, da obstaja nekakšna povezava med obema stopnjama, kar sem tudi pričakovala. V časih, ko ljudje 
-izgubljajo službe in se ne morejo več preživljati se mnogi poslužijo različnih metod. 
+izgubljajo službe in se ne morejo več preživljati, se mnogi poslužijo različnih metod za povečanje svojih prihodkov.
 
 ```{r graf.gibanje, echo=FALSE, message=FALSE, fig.align='center'}
 graf.gibanje
 ```
 
 Za leto 2016 sem izrisala graf, ki prikazuje slovenske občine glede na stopnjo brezposelnosti in obsojenih. Vidimo lahko, da čeprav nekaj občin izstopa (recimo veliko število
-obsojenih kljub nizki stopnji brezposelnosti) pa v splošnem velja da imajo občine z več brezposelnimi tudi več obsojenih. 
+obsojenih kljub nizki stopnji brezposelnosti) pa v splošnem velja, da imajo občine z več brezposelnimi tudi več obsojenih. 
 
 ```{r graf.obsojeni.brezposelni, echo=FALSE, message=FALSE, fig.align='center'}
 graf.obsojeni.brezposelni
 ```
 
-Na koncu sem se posvetila še kriminaliteti po svetu. V spodnjem grafu je predstavljenih 10 najnevarnejših držav tj. z najvišjo stopnjo umorjenih. Ne preseneča, da so 
-to večinoma države iz srednje in južne Amerike. Presenetili pa so me Ameriški Deviški otoki kjer mnogi počitnikujejo. 
+Na koncu sem se posvetila še kriminaliteti po svetu, gledala pa sem podatke o stopnji umorjenih in zaprtih. V spodnjem grafu je predstavljenih 10 najnevarnejših držav tj. z najvišjo stopnjo umorjenih. Ne preseneča, da so 
+to večinoma države iz srednje in južne Amerike. Presenetili pa so me Ameriški Deviški otoki, kjer mnogi počitnikujejo. 
 
 ```{r graf.umorjeni.max, echo=FALSE, message=FALSE, fig.align='center'}
 graf.umorjeni.max
 ```
 
 Iz naslednjega grafa lahko vidimo, da veliko od zgornjih držav ne izstopa po številu zaprtih, to tudi ne preseneča. V številnih latinskoameriških državah namreč vladajo 
-različni karteli, ki se jih večina boji in posledično nočejo pričati na sodiščih. Tako številni morilci odkorakajo prostih rok in se še naprej ukvarjajo s svojimi aktivnostmi, stopnja umorjenih pa le še narašča. Med stopnjami zaprtih presenetljivo izstopajo Sejšeli, razlog pa je, da imajo zaprtih veliko somalskih piratov. Prav tako ZDA niti nimajo tako velike stopnje umorjenih, pa v medijih velikokrat poslušamo o številnih morilskih pohodih. Iz gafa tako lahko opazimo da povezava med umorjenimi in zaprtimi niti ni pristona, saj je večina
+različni karteli, ki se jih večina boji in posledično nočejo pričati na sodiščih. Tako številni morilci odkorakajo prostih rok in se še naprej ukvarjajo s svojimi aktivnostmi, stopnja umorjenih pa le še narašča. Med stopnjami zaprtih presenetljivo izstopajo Sejšeli, razlog pa je, da imajo zaprtih veliko somalskih piratov. Prav tako ZDA niti nimajo tako velike stopnje umorjenih, pa v medijih velikokrat poslušamo o številnih morilskih pohodih. Iz gafa tako lahko opazimo, da povezava med umorjenimi in zaprtimi niti ni prisotna, saj je večina
 držav zgoščena v spodnjem kotu. 
 
 ```{r graf.umorjeni.zaprti, echo=FALSE, message=FALSE, fig.align='center'}
 graf.umorjeni.zaprti
 ```
 
-Za konec sem izrisala tudi dva zemljevida. Na prvemu so države obarvane glede na stopnjo umorov
+Za konec sem izrisala tudi dva zemljevida. Na prvemu so države obarvane glede na stopnjo umorov.
 
 ```{r zemljevid.umorjeni, echo=FALSE, message=FALSE, fig.align='center'}
 zemljevid.umorjeni
 ```
 
-Na drugem zemljevidu pa lahko vidimo države obarvane glede na stopnjo zaprtih
+Na drugem zemljevidu pa lahko vidimo države obarvane glede na stopnjo zaprtih.
 
 ```{r zemljevid.zaprti, echo=FALSE, message=FALSE, fig.align='center'}
 zemljevid.zaprti
@@ -159,19 +164,19 @@ zemljevid.zaprti
 
 # Napredna analiza podatkov
 
-Kot sem že omenila, se analizo kriminalitete začela pri nas doma, v Sloveniji, kjer sem se najprej osredotočila na število in vrste kaznivih dejanj. Prišla sem do ugotovitve, da se je v času krize število obsojenih močno povečalo, razmerje med moškimi in ženskimi storilci pa je ostalo bolj kot ne enako. 
+Kot sem že omenila, sem analizo kriminalitete začela pri nas doma, v Sloveniji, kjer sem se najprej osredotočila na število in vrste kaznivih dejanj. Prišla sem do ugotovitve, da se je v času krize število obsojenih močno povečalo, razmerje med moškimi in ženskimi storilci pa je ostalo bolj kot ne enako. 
 
-Ker se je kriminaliteta povečala prav času krize sem potem želela poiskati povezavo med brezposelnostjo in številom obsojenih, saj se je v času krize brezposelnost močno povečala. Opazili smo tako lahko da se od leta 2009 tako brezposelnost kot število obsojenih gibata v isti smeri. Prav tako lahko vidimo da imajo praviloma občine z več brezposelnimi tudi večje
+Ker se je kriminaliteta povečala prav v času krize, sem potem želela poiskati povezavo med brezposelnostjo in številom obsojenih, saj se je v času krize brezposelnost močno povečala. Opazili smo tako lahko, da se od leta 2009 tako brezposelnost kot število obsojenih gibata v isti smeri. Prav tako lahko vidimo, da imajo praviloma občine z več brezposelnimi tudi večje
 število obsojenih.
 
-Na koncu pa sem želela še poiskati povezavo med številom umorjenih in zaprtih po državah sveta. Vendar pa se je izkazalo da povezava ni tako močba, saj je največ umorjenih ravno v držav latinske Amerike. Kot sem že prej omenila, je tam sodni sistem
-manj učinkovit in posledično ne zaprejo veliko storilcev. Prav tako pa so države z z majhno stopnjo umorjenih, ki imajo veliko zaprtih, bodisi zaradi boljšega sodnega sistema ali pa gostijo tuje zapornike (Sejšeli, Kuba).
+Na koncu pa sem želela še poiskati povezavo med številom umorjenih in zaprtih po državah sveta. Vendar pa se je izkazalo, da povezava ni tako močna, saj je največ umorjenih ravno v državah latinske Amerike. Kot sem že prej omenila, je tam sodni sistem
+manj učinkovit in posledično ne zaprejo veliko storilcev. Prav tako pa so države z majhno stopnjo umorjenih, ki imajo veliko zaprtih, bodisi zaradi boljšega sodnega sistema ali pa gostijo tuje zapornike (Sejšeli, Kuba).
 
 Za konec sem v aplikaciji Shiny pripravila še dva grafa in zemljevid. 
-Na prvem grafu lahko opazujemo gibanje brezposelnih in obsojenih v vsaki občini in opazimo da tako kot povprečno za Slovenijo, je gibanje tudi tukaj usklajeno.
-Na zemljevidu lahko opazujemo katere občine imajo največje število obsojenih iz kjer je razvidno da se občine sicer spreminjajo, vendar pa so med najtemeneje obarvani velikokrat iste občine.
+Na prvem grafu lahko opazujemo gibanje brezposelnih in obsojenih v vsaki občini posebej. Pri večini občin so tako opažanja podobna kot za povprečje Slovenije, gibanje brezposelnosti in obsojenih je usklajeno. 
+Na zemljevidu lahko opazujemo, katere občine imajo največje število obsojenih. Od tod je razvidno, da se občine sicer spreminjajo, vendar pa so med najtemeneje obarvani velikokrat občine z istega območja, najbolj izstopa jugovzhodni del Slovenije. 
 
-Na zadnjem grafu pa sem napovedala kakšno bi bilo število obsojenih ob dani brezposelnosti med leti 2006 in 2016. 
+Na zadnjem grafu pa sem napovedala, kakšno bi bilo število obsojenih ob dani brezposelnosti med leti 2006 in 2016. 
 
 ***
 ```{r shiny, echo = FALSE}

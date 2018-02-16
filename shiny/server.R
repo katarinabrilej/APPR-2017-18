@@ -23,10 +23,10 @@ function(input, output) {
   
   output$graf2 <- renderPlot({
     podatki <- brezposelnost_in_obsojeni2 %>% filter(obsojeni < 10 & brezposelni < 25) %>% filter(leto == input$leto2)
-    fit <- lm(obsojeni ~ brezposelni, data=podatki)
+    LM <- lm(obsojeni ~ brezposelni, data=podatki)
     novi.brezposelni <- data.frame(brezposelni=c(25, 30,35))
-    predict(fit, novi.brezposelni)
-    napoved <- novi.brezposelni %>% mutate(obsojeni=predict(fit, .))
+    predict(LM, novi.brezposelni)
+    napoved <- novi.brezposelni %>% mutate(obsojeni=predict(LM, .))
     graf.povezava <- ggplot(podatki, aes(x = brezposelni, y = obsojeni)) + 
       geom_point(shape=1) + 
       geom_smooth(method=lm, se = FALSE) +
