@@ -159,6 +159,20 @@ zemljevid.zaprti
 
 # Napredna analiza podatkov
 
+Kot sem že omenila, se analizo kriminalitete začela pri nas doma, v Sloveniji, kjer sem se najprej osredotočila na število in vrste kaznivih dejanj. Prišla sem do ugotovitve, da se je v času krize število obsojenih močno povečalo, razmerje med moškimi in ženskimi storilci pa je ostalo bolj kot ne enako. 
+
+Ker se je kriminaliteta povečala prav času krize sem potem želela poiskati povezavo med brezposelnostjo in številom obsojenih, saj se je v času krize brezposelnost močno povečala. Opazili smo tako lahko da se od leta 2009 tako brezposelnost kot število obsojenih gibata v isti smeri. Prav tako lahko vidimo da imajo praviloma občine z več brezposelnimi tudi večje
+število obsojenih.
+
+Na koncu pa sem želela še poiskati povezavo med številom umorjenih in zaprtih po državah sveta. Vendar pa se je izkazalo da povezava ni tako močba, saj je največ umorjenih ravno v držav latinske Amerike. Kot sem že prej omenila, je tam sodni sistem
+manj učinkovit in posledično ne zaprejo veliko storilcev. Prav tako pa so države z z majhno stopnjo umorjenih, ki imajo veliko zaprtih, bodisi zaradi boljšega sodnega sistema ali pa gostijo tuje zapornike (Sejšeli, Kuba).
+
+Za konec sem v aplikaciji Shiny pripravila še dva grafa in zemljevid. 
+Na prvem grafu lahko opazujemo gibanje brezposelnih in obsojenih v vsaki občini in opazimo da tako kot povprečno za Slovenijo, je gibanje tudi tukaj usklajeno.
+Na zemljevidu lahko opazujemo katere občine imajo največje število obsojenih iz kjer je razvidno da se občine sicer spreminjajo, vendar pa so med najtemeneje obarvani velikokrat iste občine.
+
+Na zadnjem grafu pa sem napovedala kakšno bi bilo število obsojenih ob dani brezposelnosti med leti 2006 in 2016. 
+
 ***
 ```{r shiny, echo = FALSE}
 shinyAppDir("shiny", options=list(width="100%", height=600))
