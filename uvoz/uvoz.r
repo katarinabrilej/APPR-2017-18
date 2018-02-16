@@ -71,6 +71,8 @@ obsojeni_po_obcinah2$obcina[obsojeni_po_obcinah2$obcina == rence] <- "Renče-Vog
 #združeni tabeli o brezposelnih in obsojenih
 brezposelnost_in_obsojeni2 <- brezposelnost2
 brezposelnost_in_obsojeni2$obsojeni <- obsojeni_po_obcinah2$obsojeni
+brezposelnost_in_obsojeni2$obcina <- as.character(brezposelnost_in_obsojeni2$obcina)
+brezposelnost_in_obsojeni2$obcina[brezposelnost_in_obsojeni2$obcina == "Lendava/Lendva"] <- "Lendava"
 
 brezposelnost_in_obsojeni <- rbind(brezposelnost2 %>% transmute(leto, obcina,
                                                                 meritev = "brezposelni",

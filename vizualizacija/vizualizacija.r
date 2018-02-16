@@ -66,9 +66,9 @@ graf.obsojeni.brezposelni <- ggplot(data = brezposelnost_in_obsojeni2 %>% filter
   geom_point(aes(x = brezposelni , y = obsojeni), na.rm = TRUE, stat = 'identity')+
   geom_smooth(aes(x = brezposelni , y = obsojeni), method = lm, na.rm = TRUE, color = "violet")+
   geom_text(data = brezposelnost_in_obsojeni2 %>% filter(leto == 2016 & (obsojeni > 6 | brezposelni > 20)),
-            aes(x = brezposelni, y = obsojeni, label=obcina),vjust = 2, nudge_y = 0.5, check_overlap = TRUE,na.rm = TRUE)+
+            aes(x = brezposelni, y = obsojeni, label=obcina),vjust = 3, nudge_y = 0.5, check_overlap = TRUE,na.rm = TRUE)+
   ggtitle("Povezava med stopnjo brezposelnih in obsojenih v Sloveniji")+
-  ylab("Stopnja obsojenih") + xlab("Stopnja brezposelnih")
+  ylab("stopnja obsojenih") + xlab("stopnja brezposelnih")
 
 #print(graf.obsojeni.brezposelni)
 
@@ -78,14 +78,14 @@ kazniva.dejanja <- c("KAZNIVA DEJANJA ZOPER URADNO DOLŽNOST IN JAVNA POOBLASTIL
                         "KAZNIVA DEJANJA ZOPER SPLOŠNO VARNOST LJUDI IN PREMOŽENJA", "KAZNIVA DEJANJA ZOPER PRAVOSODJE")
 Encoding(kazniva.dejanja) <- "UTF-8"
 
-graf.kazniva <- ggplot(data = aggregate(stevilo.obsojenih ~ kaznivo.dejanje+leto,obsojeni_arhiv,sum) %>% 
+graf.kazniva <- ggplot(data = obsojeni_arhiv %>% group_by(kaznivo.dejanje,leto) %>% summarise(stevilo.obsojenih = sum(stevilo.obsojenih)) %>%
                          filter(leto > 2008) %>% filter (!kaznivo.dejanje %in% kazniva.dejanja))+
-  aes(x = leto, y = stevilo.obsojenih, colour = kaznivo.dejanje) + geom_line()+
-  ggtitle("Gibanje kaznivih dejanj v Sloveniji") + 
-  ylab("stevilo obsojenih")
-
+  aes(x = leto, y = stevilo.obsojenih, colour = kaznivo.dejanje) + geom_line()+ 
+  ggtitle("Gibanje kaznivih dejanj v Sloveniji") + guides(fill=guide_legend(title="kaznivo dejanje")) +
+  ylab("stevilo obsojenih") 
 #print(graf.kazniva)
 
+skupno <- obsojeni_arhiv %>% group_by(kaznivo.dejanje,leto) %>% summarise(stevilo.obsojenih = sum(stevilo.obsojenih))
 #brez kaznivih dejanj proti premoženju
 zoper.premozenje <- c("KAZNIVA DEJANJA ZOPER PREMOŽENJE")
 kazniva.skupaj = c(kazniva.dejanja, zoper.premozenje)
@@ -105,27 +105,30 @@ graf.sankcije <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija+leto+spol,
                        aes(x=sankcija, y=stevilo.obsojenih, fill = spol)) +
   geom_bar(position="stack", stat="identity", colour="black")+
   labs(title ="Stevilo obsojenih glede na sankcijo in spol")+
-  ylab("Stevilo obsojenih")+xlab("Sankcija")
+  ylab("Stevilo obsojenih") + xlab("Sankcija")
 
 #print(graf.sankcije)
-  
+
+naslov2 <- "Število obsojenih glede na spol"  
+Encoding(naslov2) <- "UTF-8"
 #graf obsojenih glede na spol skozi leta
 graf.spol <- ggplot(data = aggregate(stevilo.obsojenih ~ spol+leto,obsojeni_arhiv,sum) %>% filter (leto > 2008),
                        aes(x=leto, y=stevilo.obsojenih, fill = spol)) +
     geom_bar(position="stack", stat="identity", colour="black")+
-    labs(title ="Stevilo obsojenih glede na spol")+
-    ylab("Stevilo obsojenih")+xlab("Leto")
+    labs(title = naslov2)+
+    ylab("stevilo obsojenih")+xlab("leto")
 
 #print(graf.spol)
   
 #tortni diagram deležev sankcij
 #kazni <- aggregate(stevilo.obsojenih ~ sankcija,obsojeni_arhiv,sum)                      
 #torta.kazni <- pie(kazni$stevilo.obsojenih, labels = kazni$sankcija, main = "Povprecen delez sankcij")
-
+naslov3 <- "Povprečen delež sankcij" 
+Encoding(naslov3) <- "UTF-8"
 graf.delez.sankcij <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija,obsojeni_arhiv,sum),
                         aes(x="", y=stevilo.obsojenih, fill = sankcija)) +
   geom_bar(width = 1, stat="identity", colour="black") + coord_polar("y", start=0)+
-  xlab("") + ylab("") + ggtitle("Povprecen delez sankcij") + theme(axis.text.x=element_blank(), panel.grid=element_blank())
+  xlab("") + ylab("") + ggtitle(naslov3) + theme(axis.text.x=element_blank(), panel.grid=element_blank())
 #theme_minimal()
 
 #print(graf.delez.sankcij)
