@@ -3,11 +3,13 @@ library(ggplot2)
 library(dplyr)
 
 #10 držav z največjih številom umorjenih na 100000 prebivalcev
+naslov.umorjeni <- "10 držav z najvišjo stopnjo umorjenih"
+Encoding(naslov.umorjeni) <- "UTF-8"
 graf.umorjeni.max <- ggplot(umorjeni2[order(umorjeni2$umorjeni, decreasing=TRUE), ] %>% .[1:10, ]) + 
   aes(x = reorder(Drzava, -umorjeni), y = umorjeni, fill = Drzava) + geom_col() + 
-  xlab("Drzava") + ylab("Stopnja") +
+  xlab("drzava") + ylab("stopnja") +
   theme(axis.text.x = element_blank()) +
-  ggtitle("10 drzav z najvisjo stopnjo umorjenih")
+  ggtitle(naslov.umorjeni)
   #theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
 
 #print(graf.umorjeni.max)
@@ -49,7 +51,7 @@ graf.umorjeni.zaprti <- ggplot(data = zaprti_in_umorjeni)+
             aes(x = umorjeni, y = zaprti, label=Drzava),vjust = 2, nudge_y = 0.5, check_overlap = TRUE)+
   #geom_smooth(aes(x = umorjeni , y = zaprti), method = lm, na.rm = TRUE, color = "violet")+
   ggtitle("Povezava med stopnjo umorjenih in zaprtih")+
-  xlab("Stopnja umorjenih") + ylab("Stopnja zaprtih")
+  xlab("stopnja umorjenih") + ylab("stopnja zaprtih")
 
 #print(graf.umorjeni.zaprti)
 
@@ -64,7 +66,7 @@ graf.gibanje <- ggplot(povprecna.stopnja) +
 #povezava med številom brezposelnih in obsojenih v slovenskih občinah
 graf.obsojeni.brezposelni <- ggplot(data = brezposelnost_in_obsojeni2 %>% filter(leto == 2016))+
   geom_point(aes(x = brezposelni , y = obsojeni), na.rm = TRUE, stat = 'identity')+
-  geom_smooth(aes(x = brezposelni , y = obsojeni), method = lm, na.rm = TRUE, color = "violet")+
+  geom_smooth(aes(x = brezposelni , y = obsojeni), method = lm, na.rm = TRUE, color = "lightseagreen")+
   geom_text(data = brezposelnost_in_obsojeni2 %>% filter(leto == 2016 & (obsojeni > 6 | brezposelni > 20)),
             aes(x = brezposelni, y = obsojeni, label=obcina),vjust = 3, nudge_y = 0.5, check_overlap = TRUE,na.rm = TRUE)+
   ggtitle("Povezava med stopnjo brezposelnih in obsojenih v Sloveniji")+
@@ -154,8 +156,8 @@ zemljevid$drzava[zemljevid$drzava == "United States of America"] <- "United Stat
 zemljevid.umorjeni <- ggplot() +
   geom_polygon(data = umorjeni2 %>% right_join(zemljevid, by = c("Drzava" = "drzava")),
                aes(x = long, y = lat, group = group, fill = umorjeni), alpha = 0.8, color = "black")+
-  scale_fill_gradient2(low = "yellow", mid = "red",
-                       high = "brown", midpoint = 75) + 
+  scale_fill_gradient2(low = "peachpuff2", mid = "salmon",
+                       high = "salmon4", midpoint = 75, na.value = "gray") + 
   xlab("") + ylab("") + ggtitle("Stopnja umorjenih po svetu")+
   guides(fill=guide_legend(title="Stopnja"))
 
@@ -165,10 +167,12 @@ zemljevid.umorjeni <- ggplot() +
 zemljevid.zaprti <- ggplot() +
     geom_polygon(data = zaprti2 %>% right_join(zemljevid, by = c("Drzava" = "drzava")),
                  aes(x = long, y = lat, group = group, fill = zaprti), color = "black")+
+  scale_fill_gradient2(low = "lightcyan", mid = "turquoise4",
+                       high = "darkslategray", midpoint = 600, na.value = "gray") +
     xlab("") + ylab("") + ggtitle("Stopnja zaprtih po svetu") +
     guides(fill=guide_legend(title="Stopnja"))
   
-#print(zemljevid.zaprti)
+print(zemljevid.zaprti)
 
 #uvozimo zemljevid slovenskih občin
 obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",

@@ -5,7 +5,7 @@ function(input, output) {
   output$graf1 <- renderPlot({
     graf.gibanje.obcina <- ggplot(brezposelnost_in_obsojeni %>% filter(obcina == input$obcina1)) + 
       aes(x = leto, y = stopnja, colour = meritev) + geom_line()+
-      labs(title = "gibanje kriminalitete in brezposelnosti")
+      labs(title = "Gibanje kriminalitete in brezposelnosti")
     print(graf.gibanje.obcina)
   })
   
@@ -31,7 +31,7 @@ function(input, output) {
       geom_point(shape=1) + 
       geom_smooth(method=lm, se = FALSE) +
       geom_point(data=napoved, aes(x = brezposelni, y = obsojeni), color='red', size=3)+
-      labs(title = "povezava med stopnjo brezposelnih in obsojenih")
+      labs(title = "Povezava med stopnjo brezposelnih in obsojenih")
     print(graf.povezava)
   })
   
