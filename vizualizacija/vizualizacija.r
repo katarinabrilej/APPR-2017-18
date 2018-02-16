@@ -12,7 +12,6 @@ graf.umorjeni.max <- ggplot(umorjeni2[order(umorjeni2$umorjeni, decreasing=TRUE)
   ggtitle(naslov.umorjeni)
   #theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
 
-#print(graf.umorjeni.max)
 
 #10 držav z najmanjšim številom umorjenih na 100000 prebivalcev
 graf.umorjeni.min <- ggplot(umorjeni2[order(umorjeni2$umorjeni, decreasing=FALSE), ] %>% .[1:10, ]) + 
@@ -22,8 +21,6 @@ graf.umorjeni.min <- ggplot(umorjeni2[order(umorjeni2$umorjeni, decreasing=FALSE
   ggtitle("10 drzav z najnizjo stopnjo umorjenih")
 #theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
 
-#print(graf.umorjeni.min)
-
 #10 držav z največjih številom zaprtih na 100000 prebivalcev
 graf.zaprti.max <- ggplot(zaprti2[order(zaprti2$zaprti, decreasing=TRUE), ] %>% .[1:10, ]) + 
   aes(x = reorder(Drzava, -zaprti), y = zaprti, fill = Drzava) + geom_col() + 
@@ -32,7 +29,6 @@ graf.zaprti.max <- ggplot(zaprti2[order(zaprti2$zaprti, decreasing=TRUE), ] %>% 
   ggtitle("10 drzav z najvisjo stopnjo zaprtih")
 #theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
 
-#print(graf.zaprti.max)
 
 #10 držav z najmanjšim številom zaprtih na 100000 prebivalcev
 graf.zaprti.min <- ggplot(zaprti2[order(zaprti2$zaprti, decreasing=FALSE), ] %>% .[1:10, ]) + 
@@ -42,7 +38,6 @@ graf.zaprti.min <- ggplot(zaprti2[order(zaprti2$zaprti, decreasing=FALSE), ] %>%
   ggtitle("10 drzav z najnizjo stopnjo zaprtih")
 #theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
 
-#print(graf.zaprti.min)
 
 #povezava med številom umorjenih in zaprtih po svetu
 graf.umorjeni.zaprti <- ggplot(data = zaprti_in_umorjeni)+
@@ -53,7 +48,6 @@ graf.umorjeni.zaprti <- ggplot(data = zaprti_in_umorjeni)+
   ggtitle("Povezava med stopnjo umorjenih in zaprtih")+
   xlab("stopnja umorjenih") + ylab("stopnja zaprtih")
 
-#print(graf.umorjeni.zaprti)
 
 #gibanje stevila brezposelnih in obsojenih v Sloveniji v obdobju 2006-2015
 povprecna.stopnja <- brezposelnost_in_obsojeni %>% group_by(leto,meritev) %>% summarise(stopnja = round(mean(stopnja, na.rm=TRUE),digits = 2))
@@ -61,7 +55,6 @@ graf.gibanje <- ggplot(povprecna.stopnja) +
   aes(x = leto, y = stopnja, colour = meritev) + geom_line()+
   ggtitle("Gibanje kriminalitete in brezposelnosti v Sloveniji") 
 
-#print(graf.gibanje)
 
 #povezava med številom brezposelnih in obsojenih v slovenskih občinah
 graf.obsojeni.brezposelni <- ggplot(data = brezposelnost_in_obsojeni2 %>% filter(leto == 2016))+
@@ -72,7 +65,6 @@ graf.obsojeni.brezposelni <- ggplot(data = brezposelnost_in_obsojeni2 %>% filter
   ggtitle("Povezava med stopnjo brezposelnih in obsojenih v Sloveniji")+
   ylab("stopnja obsojenih") + xlab("stopnja brezposelnih")
 
-#print(graf.obsojeni.brezposelni)
 
 #gibanje števila kaznivih dejanj v Sloveniji
 kazniva.dejanja <- c("KAZNIVA DEJANJA ZOPER URADNO DOLŽNOST IN JAVNA POOBLASTILA",
@@ -85,7 +77,7 @@ graf.kazniva <- ggplot(data = obsojeni_arhiv %>% group_by(kaznivo.dejanje,leto) 
   aes(x = leto, y = stevilo.obsojenih, colour = kaznivo.dejanje) + geom_line()+ 
   ggtitle("Gibanje kaznivih dejanj v Sloveniji") + guides(fill=guide_legend(title="kaznivo dejanje")) +
   ylab("stevilo obsojenih") 
-#print(graf.kazniva)
+
 
 skupno <- obsojeni_arhiv %>% group_by(kaznivo.dejanje,leto) %>% summarise(stevilo.obsojenih = sum(stevilo.obsojenih))
 #brez kaznivih dejanj proti premoženju
@@ -100,7 +92,6 @@ graf.kazniva2 <- ggplot(data = aggregate(stevilo.obsojenih ~ kaznivo.dejanje+let
   ggtitle("Gibanje kaznivih dejanj v Sloveniji") + 
   ylab("stevilo obsojenih")
 
-#print(graf.kazniva2)
 
 #graf sankcij glede na spol
 graf.sankcije <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija+leto+spol,obsojeni_arhiv,sum) %>% filter (leto == 2011),
@@ -109,7 +100,6 @@ graf.sankcije <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija+leto+spol,
   labs(title ="Stevilo obsojenih glede na sankcijo in spol")+
   ylab("Stevilo obsojenih") + xlab("Sankcija")
 
-#print(graf.sankcije)
 
 naslov2 <- "Število obsojenih glede na spol"  
 Encoding(naslov2) <- "UTF-8"
@@ -120,7 +110,6 @@ graf.spol <- ggplot(data = aggregate(stevilo.obsojenih ~ spol+leto,obsojeni_arhi
     labs(title = naslov2)+
     ylab("stevilo obsojenih")+xlab("leto")
 
-#print(graf.spol)
   
 #tortni diagram deležev sankcij
 #kazni <- aggregate(stevilo.obsojenih ~ sankcija,obsojeni_arhiv,sum)                      
@@ -133,7 +122,6 @@ graf.delez.sankcij <- ggplot(data = aggregate(stevilo.obsojenih ~ sankcija,obsoj
   xlab("") + ylab("") + ggtitle(naslov3) + theme(axis.text.x=element_blank(), panel.grid=element_blank())
 #theme_minimal()
 
-#print(graf.delez.sankcij)
 
   
 # Uvozimo zemljevid zemljevid sveta
@@ -160,7 +148,6 @@ zemljevid.umorjeni <- ggplot() +
   xlab("") + ylab("") + ggtitle("Stopnja umorjenih po svetu")+
   guides(fill=guide_legend(title="Stopnja"))
 
-#print(zemljevid.umorjeni)
 
   
 zemljevid.zaprti <- ggplot() +
@@ -171,7 +158,6 @@ zemljevid.zaprti <- ggplot() +
     xlab("") + ylab("") + ggtitle("Stopnja zaprtih po svetu") +
     guides(fill=guide_legend(title="Stopnja"))
   
-#print(zemljevid.zaprti)
 
 #uvozimo zemljevid slovenskih občin
 obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
@@ -187,10 +173,6 @@ zemljevid.obsojeni <- ggplot() +
   scale_fill_gradient2(low = "blanchedalmond", mid = "lightpink3",
                        high = "violetred", midpoint = 6 , na.value = "gray") + 
   xlab("") + ylab("") + ggtitle(naslov.obcine)
-
-#obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "OB_UIME"))
-
-#print(zemljevid.obsojeni)
 
 #ob <- unique(obcine$OB_UIME)
 #OB <- unique(obsojeni_po_obcinah2$obcina) #podatki za 212 občin

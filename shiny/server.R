@@ -12,12 +12,14 @@ function(input, output) {
   
   
   output$zemljevid1 <- renderPlot({
+    naslov.obcine <-"Stopnja obsojenih po slovenskih občinah"
+    Encoding(naslov.obcine) <- "UTF-8"
     zemljevid.obsojeni <- ggplot() +
       geom_polygon(data = left_join(obcine, obsojeni_po_obcinah2 %>% filter(leto == input$leto1), by = c("OB_UIME" = "obcina")),
                    aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
       scale_fill_gradient2(low = "blanchedalmond", mid = "lightpink3",
                            high = "violetred", midpoint = 6) + 
-      xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
+      xlab("") + ylab("") + ggtitle(naslov.obcine)
     print(zemljevid.obsojeni)
   })  
   

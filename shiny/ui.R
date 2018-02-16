@@ -1,7 +1,7 @@
 library(shiny)
 
 fluidPage(
-  titlePanel("Analiza"),
+  titlePanel(""),
   
   tabPanel("Graf",
            sidebarPanel(
