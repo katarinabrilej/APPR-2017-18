@@ -156,8 +156,7 @@ zemljevid$drzava[zemljevid$drzava == "United States of America"] <- "United Stat
 zemljevid.umorjeni <- ggplot() +
   geom_polygon(data = umorjeni2 %>% right_join(zemljevid, by = c("Drzava" = "drzava")),
                aes(x = long, y = lat, group = group, fill = umorjeni), alpha = 0.8, color = "black")+
-  scale_fill_gradient2(low = "peachpuff2", mid = "salmon",
-                       high = "salmon4", midpoint = 75, na.value = "gray") + 
+  scale_fill_gradient2(low = "yellow", mid = "red", high = "brown", midpoint = 80) + 
   xlab("") + ylab("") + ggtitle("Stopnja umorjenih po svetu")+
   guides(fill=guide_legend(title="Stopnja"))
 
@@ -172,7 +171,7 @@ zemljevid.zaprti <- ggplot() +
     xlab("") + ylab("") + ggtitle("Stopnja zaprtih po svetu") +
     guides(fill=guide_legend(title="Stopnja"))
   
-print(zemljevid.zaprti)
+#print(zemljevid.zaprti)
 
 #uvozimo zemljevid slovenskih občin
 obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
@@ -180,12 +179,14 @@ obcine <- uvozi.zemljevid("http://baza.fmf.uni-lj.si/OB.zip",
 obcine$OB_UIME <- as.character(obcine$OB_UIME)
 
 #zemljevid stopnje obsojenih
+naslov.obcine <-"Stopnja obsojenih po slovenskih občinah"
+Encoding(naslov.obcine) <- "UTF-8"
 zemljevid.obsojeni <- ggplot() +
   geom_polygon(data = left_join(obcine, obsojeni_po_obcinah2 %>% filter(leto == "2016"), by = c("OB_UIME" = "obcina")),
                aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
   scale_fill_gradient2(low = "blanchedalmond", mid = "lightpink3",
-                       high = "violetred", midpoint = 6 , na.value = "white") + 
-  xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
+                       high = "violetred", midpoint = 6 , na.value = "gray") + 
+  xlab("") + ylab("") + ggtitle(naslov.obcine)
 
 #obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "OB_UIME"))
 
