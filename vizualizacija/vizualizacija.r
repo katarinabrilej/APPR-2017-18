@@ -54,7 +54,8 @@ graf.umorjeni.zaprti <- ggplot(data = zaprti_in_umorjeni)+
 #print(graf.umorjeni.zaprti)
 
 #gibanje stevila brezposelnih in obsojenih v Sloveniji v obdobju 2006-2015
-graf.gibanje <- ggplot(aggregate(stopnja ~ leto+meritev,brezposelnost_in_obsojeni,sum)) + 
+povprecna.stopnja <- brezposelnost_in_obsojeni %>% group_by(leto,meritev) %>% summarise(stopnja = round(mean(stopnja, na.rm=TRUE),digits = 2))
+graf.gibanje <- ggplot(povprecna.stopnja) + 
   aes(x = leto, y = stopnja, colour = meritev) + geom_line()+
   ggtitle("Gibanje kriminalitete in brezposelnosti v Sloveniji") 
 
@@ -176,7 +177,7 @@ zemljevid.obsojeni <- ggplot() +
   geom_polygon(data = left_join(obcine, obsojeni_po_obcinah2 %>% filter(leto == "2016"), by = c("OB_UIME" = "obcina")),
                aes(x = long, y = lat, group = group, fill = obsojeni), color = "black")+
   scale_fill_gradient2(low = "blanchedalmond", mid = "lightpink3",
-                       high = "violetred", midpoint = 6) + 
+                       high = "violetred", midpoint = 6 , na.value = "white") + 
   xlab("") + ylab("") + ggtitle("Stopnja obsojenih po slovenskih obcinah")
 
 #obsojeni_po_obcinah2 %>% filter(leto == "2016") %>% right_join(obcine, by = c("obcina" = "OB_UIME"))
