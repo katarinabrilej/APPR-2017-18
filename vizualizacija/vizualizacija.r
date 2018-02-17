@@ -5,12 +5,21 @@ library(dplyr)
 #10 držav z največjih številom umorjenih na 100000 prebivalcev
 naslov.umorjeni <- "10 držav z najvišjo stopnjo umorjenih"
 Encoding(naslov.umorjeni) <- "UTF-8"
-graf.umorjeni.max <- ggplot(umorjeni2[order(umorjeni2$umorjeni, decreasing=TRUE), ] %>% .[1:10, ]) + 
-  aes(x = reorder(Drzava, -umorjeni), y = umorjeni, fill = Drzava) + geom_col() + 
+graf.umorjeni.max <- ggplot(umorjeni2 %>% top_n(10, umorjeni) %>%
+                              mutate(Drzava = reorder(Drzava, -umorjeni))) + 
+  aes(x = Drzava, y = umorjeni, fill = Drzava) + geom_col() + 
   xlab("drzava") + ylab("stopnja") +
   theme(axis.text.x = element_blank()) +
   ggtitle(naslov.umorjeni)
-  #theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+
+#theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+
+graf.umorjeni.max <- ggplot(umorjeni2 %>% top_n(10, umorjeni) %>%
+                              mutate(Drzava = reorder(Drzava, -umorjeni))) + 
+  aes(x = Drzava, y = umorjeni, fill = Drzava) + geom_col() + 
+  xlab("drzava") + ylab("stopnja") +
+  theme(axis.text.x = element_blank()) +
+  ggtitle(naslov.umorjeni)
 
 
 #10 držav z najmanjšim številom umorjenih na 100000 prebivalcev
