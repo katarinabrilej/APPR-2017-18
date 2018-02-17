@@ -31,7 +31,7 @@ function(input, output) {
     napoved <- novi.brezposelni %>% mutate(obsojeni=predict(LM, .))
     graf.povezava <- ggplot(podatki, aes(x = brezposelni, y = obsojeni)) + 
       geom_point(shape=1) + 
-      geom_smooth(method=lm, se = FALSE) +
+      geom_smooth(method=lm, se = FALSE, fullrange = TRUE) +
       geom_point(data=napoved, aes(x = brezposelni, y = obsojeni), color='red', size=3)+
       labs(title = "Povezava med stopnjo brezposelnih in obsojenih")
     print(graf.povezava)
